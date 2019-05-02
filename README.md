@@ -1,7 +1,7 @@
-# Dash Ninja Front-End (dashninja-fe)
+# Dash Ninja Front-End (pacninja-fe)
 By Alexandre (aka elbereth) Devilliers
 
-Check the running live website at [https://www.dashninja.pl]
+Check the running live website at [https://www.pacninja.pl]
 
 This is part of what makes the Dash Ninja monitoring application.
 It contains:
@@ -13,21 +13,21 @@ Feel free to donate to : XkfkHqMnhvQovo7kXQjvnNiFnQhRNZYCsz
 Special thanks to : [Jetbrains](https://www.jetbrains.com)
 
 ## Requirement:
-* You will need a running website, official at https://dashninja.pl uses nginx
+* You will need a running website, official at https://pacninja.pl uses nginx
 
 For the REST API:
 * PHP v5.6 with mysqli (works/tested with PHP 7.1)
 * Phalcon v2.0.x (should work with any version) up to v3.2.x
-* MySQL database with Dash Ninja Database (check dashninja-db repository)
+* MySQL database with Dash Ninja Database (check pacninja-db repository)
 
 ## Optional:
 * Dash Ninja Control script installed and running (to have a populated database)
 
 ## Install:
-* Go to the root of your website for Dash monitoring (ex: cd /home/dashninja2/www/)
+* Go to the root of your website for Dash monitoring (ex: cd /home/pacninja2/www/)
 * Get latest code from github:
 ```shell
-git clone https://github.com/elbereth/dashninja-fe.git
+git clone https://github.com/akshaynexus/pacninja-fe.git
 ```
 
 * Configure php to answer only to calls to api/index.php rewriting to end-point api/

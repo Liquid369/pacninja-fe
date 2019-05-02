@@ -2,7 +2,7 @@
 
 /*
     This file is part of Dash Ninja.
-    https://github.com/elbereth/dashninja-fe
+    https://github.com/akshaynexus/pacninja-fe
 
     Dash Ninja is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -98,7 +98,7 @@ function generate_masternodeslistfull_json_files($mysqli, $testnet = 0) {
 
     xecho("Retrieving current protocol version: ");
 
-    $cachefnam = CACHEFOLDER.sprintf("dashninja_maxprotocol_%d",$testnet);
+    $cachefnam = CACHEFOLDER.sprintf("pacninja_maxprotocol_%d",$testnet);
     $cachevalid = (is_readable($cachefnam) && ((filemtime($cachefnam)+300)>=time()));
     if ($cachevalid) {
         $protocol = unserialize(file_get_contents($cachefnam));
@@ -343,7 +343,7 @@ function generate_blocks24h_json_files($mysqli, $testnet = 0) {
 
     xecho("Retrieving protocol descriptions: ");
 
-    $cachefnam = CACHEFOLDER.sprintf("dashninja_protocolesc_%d",$testnet);
+    $cachefnam = CACHEFOLDER.sprintf("pacninja_protocolesc_%d",$testnet);
     $cachevalid = (is_readable($cachefnam) && ((filemtime($cachefnam)+900)>=time()));
     if ($cachevalid) {
         echo "From cache... ";

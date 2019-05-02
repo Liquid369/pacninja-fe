@@ -1,6 +1,6 @@
 /*
  This file is part of Dash Ninja.
- https://github.com/elbereth/dashninja-fe
+ https://github.com/akshaynexus/pacninja-fe
 
  Dash Ninja is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -17,10 +17,10 @@
 
  */
 
-// Dash Ninja Front-End (dashninja-fe) - Masternode List (v2)
+// Dash Ninja Front-End (pacninja-fe) - Masternode List (v2)
 // By elberethzone / https://www.dash.org/forum/members/elbereth.175/
 
-var dashninjaversion = '2.5.7';
+var pacninjaversion = '2.5.7';
 var tableLocalNodes = null;
 var tableBlockConsensus = null;
 var tableMNList = null;
@@ -41,72 +41,72 @@ if(typeof(Storage) !== "undefined") {
     }
 }
 
-var dashninjatestnet = 0;
+var pacninjatestnet = 0;
 
-if (typeof dashninjatestnethost !== 'undefined') {
-    if (window.location.hostname == dashninjatestnethost) {
-        dashninjatestnet = 1;
+if (typeof pacninjatestnethost !== 'undefined') {
+    if (window.location.hostname == pacninjatestnethost) {
+        pacninjatestnet = 1;
     }
 }
-if (typeof dashninjatestnettor !== 'undefined') {
-    if (window.location.hostname == dashninjatestnettor) {
-        dashninjatestnet = 1;
+if (typeof pacninjatestnettor !== 'undefined') {
+    if (window.location.hostname == pacninjatestnettor) {
+        pacninjatestnet = 1;
     }
 }
-if (typeof dashninjatestneti2p !== 'undefined') {
-    if (window.location.hostname == dashninjatestneti2p) {
-        dashninjatestnet = 1;
+if (typeof pacninjatestneti2p !== 'undefined') {
+    if (window.location.hostname == pacninjatestneti2p) {
+        pacninjatestnet = 1;
     }
 }
 
-if (typeof dashninjamndetail === 'undefined') {
-    var dashninjamndetail = [[],[]];
+if (typeof pacninjamndetail === 'undefined') {
+    var pacninjamndetail = [[],[]];
 }
-if (typeof dashninjamndetail[0] === 'undefined') {
-    dashninjamndetail[0] = [];
+if (typeof pacninjamndetail[0] === 'undefined') {
+    pacninjamndetail[0] = [];
 }
-if (typeof dashninjamndetail[1] === 'undefined') {
-    dashninjamndetail[1] = [];
-}
-
-if (typeof dashninjamndetailvin === 'undefined') {
-    var dashninjamndetailvin = [[],[]];
-}
-if (typeof dashninjamndetailvin[0] === 'undefined') {
-    dashninjamndetailvin[0] = [];
-}
-if (typeof dashninjamndetailvin[1] === 'undefined') {
-    dashninjamndetailvin[1] = [];
+if (typeof pacninjamndetail[1] === 'undefined') {
+    pacninjamndetail[1] = [];
 }
 
-if (typeof dashninjaaddressexplorer === 'undefined') {
-    var dashninjaaddressexplorer = [[],[]];
+if (typeof pacninjamndetailvin === 'undefined') {
+    var pacninjamndetailvin = [[],[]];
 }
-if (typeof dashninjaaddressexplorer[0] === 'undefined') {
-    dashninjaaddressexplorer[0] = [];
+if (typeof pacninjamndetailvin[0] === 'undefined') {
+    pacninjamndetailvin[0] = [];
 }
-if (typeof dashninjaaddressexplorer[1] === 'undefined') {
-    dashninjaaddressexplorer[1] = [];
-}
-
-if (typeof dashninjaqueryexplorer === 'undefined') {
-    var dashninjaqueryexplorer = [[],[]];
-}
-if (typeof dashninjaqueryexplorer[0] === 'undefined') {
-    dashninjaqueryexplorer[0] = [];
-}
-if (typeof dashninjaqueryexplorer[1] === 'undefined') {
-    dashninjaqueryexplorer[1] = [];
+if (typeof pacninjamndetailvin[1] === 'undefined') {
+    pacninjamndetailvin[1] = [];
 }
 
-if (typeof dashninjatxexplorer === 'undefined') {
-    var dashninjatxexplorer = [[],[]];
+if (typeof pacninjaaddressexplorer === 'undefined') {
+    var pacninjaaddressexplorer = [[],[]];
 }
-if (typeof dashninjatxexplorer[0] === 'undefined') {
-    dashninjatxexplorer[0] = [];
+if (typeof pacninjaaddressexplorer[0] === 'undefined') {
+    pacninjaaddressexplorer[0] = [];
 }
-if (typeof dashninjatxexplorer[1] === 'undefined') {
-    dashninjatxexplorer[1] = [];
+if (typeof pacninjaaddressexplorer[1] === 'undefined') {
+    pacninjaaddressexplorer[1] = [];
+}
+
+if (typeof pacninjaqueryexplorer === 'undefined') {
+    var pacninjaqueryexplorer = [[],[]];
+}
+if (typeof pacninjaqueryexplorer[0] === 'undefined') {
+    pacninjaqueryexplorer[0] = [];
+}
+if (typeof pacninjaqueryexplorer[1] === 'undefined') {
+    pacninjaqueryexplorer[1] = [];
+}
+
+if (typeof pacninjatxexplorer === 'undefined') {
+    var pacninjatxexplorer = [[],[]];
+}
+if (typeof pacninjatxexplorer[0] === 'undefined') {
+    pacninjatxexplorer[0] = [];
+}
+if (typeof pacninjatxexplorer[1] === 'undefined') {
+    pacninjatxexplorer[1] = [];
 }
 
 function tableLocalNodesRefresh(){
@@ -128,7 +128,7 @@ function tableMNListRefresh(){
 };
 
 function mnpaymentsRefresh(){
-    $.getJSON( "/api/masternodes/stats?testnet="+dashninjatestnet, function( data ) {
+    $.getJSON( "/api/masternodes/stats?testnet="+pacninjatestnet, function( data ) {
         var date = new Date();
         var n = date.toDateString();
         var time = date.toLocaleTimeString();
@@ -159,7 +159,7 @@ function getLatestdashVersion() {
             || ( sessionStorage.getItem("nextdashversion") === null )
             || ( sessionStorage.getItem("nextdashversion") < currentdate.getTime() )) && (dashversionsemaphore == false)) {
         dashversionsemaphore = true;
-        $.getJSON( "/dashninja-latestversion.json?nocache="+ (new Date()).getTime(), function( data ) {
+        $.getJSON( "/pacninja-latestversion.json?nocache="+ (new Date()).getTime(), function( data ) {
             sessionStorage.setItem('currentdashversion', data.version.string);
             sessionStorage.setItem('currentsentinelversion', data.sentinelversion.string);
             var currentdate = new Date();
@@ -190,7 +190,7 @@ function getLatestdashVersion() {
 };
 
 function getVoteLimit() {
-    $.getJSON("/data/votelimit-" + dashninjatestnet+".json", function (data) {
+    $.getJSON("/data/votelimit-" + pacninjatestnet+".json", function (data) {
         var cls = "panel-red";
         if (data.data.votelimit.nextvote.BlockTime == 0) {
             var datevotelimit = new Date(data.data.votelimit.nextsuperblock.BlockTime * 1000);
@@ -212,31 +212,31 @@ function getVoteLimit() {
 
 $(document).ready(function() {
 
-    $('#dashninjajsversion').text(dashninjaversion).addClass("label-info").removeClass("label-danger");
+    $('#pacninjajsversion').text(pacninjaversion).addClass("label-info").removeClass("label-danger");
 
-    if (dashninjatestnet == 1) {
+    if (pacninjatestnet == 1) {
         $('#testnetalert').show();
         $('#testnettitle').show();
-        $('a[name=menuitemexplorer]').attr("href", "https://" + dashninjatestnetexplorer);
-        if (typeof dashninjatestnettor !== 'undefined') {
-            $('a[name=dashninjatorurl]').attr("href", "http://"+dashninjatestnettor+"/masternodes.html");
-            $('span[name=dashninjatordisplay]').show();
+        $('a[name=menuitemexplorer]').attr("href", "https://" + pacninjatestnetexplorer);
+        if (typeof pacninjatestnettor !== 'undefined') {
+            $('a[name=pacninjatorurl]').attr("href", "http://"+pacninjatestnettor+"/masternodes.html");
+            $('span[name=pacninjatordisplay]').show();
         }
 
-        if (typeof dashninjatestneti2p !== 'undefined') {
-            $('a[name=dashninjai2purl]').attr("href", "http://" + dashninjatestneti2p + "/masternodes.html");
-            $('span[name=dashninjai2pdisplay]').show();
+        if (typeof pacninjatestneti2p !== 'undefined') {
+            $('a[name=pacninjai2purl]').attr("href", "http://" + pacninjatestneti2p + "/masternodes.html");
+            $('span[name=pacninjai2pdisplay]').show();
         }
     }
     else {
-        if (typeof dashninjator !== 'undefined') {
-            $('a[name=dashninjatorurl]').attr("href", "http://"+dashninjator+"/masternodes.html");
-            $('span[name=dashninjatordisplay]').show();
+        if (typeof pacninjator !== 'undefined') {
+            $('a[name=pacninjatorurl]').attr("href", "http://"+pacninjator+"/masternodes.html");
+            $('span[name=pacninjatordisplay]').show();
         }
 
-        if (typeof dashninjai2p !== 'undefined') {
-            $('a[name=dashninjai2purl]').attr("href", "http://" + dashninjai2p + "/masternodes.html");
-            $('span[name=dashninjai2pdisplay]').show();
+        if (typeof pacninjai2p !== 'undefined') {
+            $('a[name=pacninjai2purl]').attr("href", "http://" + pacninjai2p + "/masternodes.html");
+            $('span[name=pacninjai2pdisplay]').show();
         }
     }
 
@@ -245,22 +245,22 @@ $(document).ready(function() {
 
     var pkutxt = '<ul>';
     var ix = 0;
-    for (var i = 0, ien = dashninjamndetail[dashninjatestnet].length; i < ien; i++) {
+    for (var i = 0, ien = pacninjamndetail[pacninjatestnet].length; i < ien; i++) {
         if (ix == 0) {
             pkutxt += '<li>[Link]';
         } else {
             pkutxt += '<li>[' + ix + ']';
         }
-        pkutxt += ' ' + dashninjamndetail[dashninjatestnet][i][1] + "</li>";
+        pkutxt += ' ' + pacninjamndetail[pacninjatestnet][i][1] + "</li>";
         ix++;
     }
-    for (var i = 0, ien = dashninjaaddressexplorer[dashninjatestnet].length; i < ien; i++) {
+    for (var i = 0, ien = pacninjaaddressexplorer[pacninjatestnet].length; i < ien; i++) {
         if (ix == 0) {
             pkutxt += '<li>[Link]';
         } else {
             pkutxt += '<li>[' + ix + ']';
         }
-        pkutxt += ' ' + dashninjaaddressexplorer[dashninjatestnet][i][1] + "</li>";
+        pkutxt += ' ' + pacninjaaddressexplorer[pacninjatestnet][i][1] + "</li>";
         ix++;
     }
     pkutxt += '</ul>';
@@ -278,7 +278,7 @@ $(document).ready(function() {
         responsive: true,
         searching: false,
         dom: "Tfrtp",
-        ajax: { url: "/data/nodesstatus-"+dashninjatestnet+".json",
+        ajax: { url: "/data/nodesstatus-"+pacninjatestnet+".json",
             dataSrc: 'data.nodes',
             cache: true },
         "paging": false,
@@ -335,10 +335,10 @@ $(document).ready(function() {
                 var outtxt = '';
                 if ((data.NodeEnabled != 0) && (data.NodeProcessStatus == 'running')) {
                     if (type != 'sort') {
-                        if (dashninjablockexplorer[dashninjatestnet].length > 0) {
-                            outtxt += '<a href="' + dashninjablockexplorer[dashninjatestnet][0][0].replace('%%b%%', data.NodeLastBlockHash) + '">' + data.NodeLastBlockHash + '</a>';
-                            for (var i = 1, ien = dashninjablockexplorer[dashninjatestnet].length; i < ien; i++) {
-                                outtxt += '<a href="' + dashninjablockexplorer[dashninjatestnet][i][0].replace('%%b%%', data.NodeLastBlockHash) + '">[' + i + ']</a>';
+                        if (pacninjablockexplorer[pacninjatestnet].length > 0) {
+                            outtxt += '<a href="' + pacninjablockexplorer[pacninjatestnet][0][0].replace('%%b%%', data.NodeLastBlockHash) + '">' + data.NodeLastBlockHash + '</a>';
+                            for (var i = 1, ien = pacninjablockexplorer[pacninjatestnet].length; i < ien; i++) {
+                                outtxt += '<a href="' + pacninjablockexplorer[pacninjatestnet][i][0].replace('%%b%%', data.NodeLastBlockHash) + '">[' + i + ']</a>';
                             }
                         }
                     }
@@ -373,7 +373,7 @@ $(document).ready(function() {
         dom: "Trtp",
         responsive: true,
         searching: false,
-        ajax: { url: "/data/blocksconsensus-"+dashninjatestnet+".json",
+        ajax: { url: "/data/blocksconsensus-"+pacninjatestnet+".json",
             dataSrc: 'data.blocksconsensus',
             cache: true },
         "paging": false,
@@ -557,7 +557,7 @@ $(document).ready(function() {
         }
     } );
     tableMNList = $('#mnlist').dataTable( {
-        ajax: { url: "/data/masternodeslistfull-"+dashninjatestnet+".json",
+        ajax: { url: "/data/masternodeslistfull-"+pacninjatestnet+".json",
                 dataSrc: 'data.masternodes',
             cache: true },
         lengthMenu: [ [50, 100, 250, 500, -1], [50, 100, 250, 500, "All"] ],
@@ -571,23 +571,23 @@ $(document).ready(function() {
             { data: null, render: function ( data, type, row ) {
                 var outtxt = '';
                 if (type != 'sort') {
-                    if ((dashninjamndetailvin[dashninjatestnet].length > 0) || (dashninjatxexplorer[dashninjatestnet].length > 0)) {
+                    if ((pacninjamndetailvin[pacninjatestnet].length > 0) || (pacninjatxexplorer[pacninjatestnet].length > 0)) {
                         var ix = 0;
-                        for ( var i=0, ien=dashninjamndetailvin[dashninjatestnet].length ; i<ien ; i++ ) {
+                        for ( var i=0, ien=pacninjamndetailvin[pacninjatestnet].length ; i<ien ; i++ ) {
                             if (ix == 0) {
-                                outtxt += '<a href="'+dashninjamndetailvin[dashninjatestnet][0][0].replace('%%a%%',data.MasternodeOutputHash+'-'+data.MasternodeOutputIndex)+'" data-toggle="tooltip" data-placement="left" title="'+data.MasternodeOutputHash+'-'+data.MasternodeOutputIndex+'">'+data.MasternodeOutputHash.substring(0,8)+'<i class="fa fa-ellipsis-h" aria-hidden="true"></i>\n-'+data.MasternodeOutputIndex+'</a>';
+                                outtxt += '<a href="'+pacninjamndetailvin[pacninjatestnet][0][0].replace('%%a%%',data.MasternodeOutputHash+'-'+data.MasternodeOutputIndex)+'" data-toggle="tooltip" data-placement="left" title="'+data.MasternodeOutputHash+'-'+data.MasternodeOutputIndex+'">'+data.MasternodeOutputHash.substring(0,8)+'<i class="fa fa-ellipsis-h" aria-hidden="true"></i>\n-'+data.MasternodeOutputIndex+'</a>';
                             }
                             else {
-                                outtxt += '<a href="'+dashninjamndetailvin[dashninjatestnet][i][0].replace('%%a%%',data.MasternodeOutputHash+'-'+data.MasternodeOutputIndex)+'">['+ix+']</a>';
+                                outtxt += '<a href="'+pacninjamndetailvin[pacninjatestnet][i][0].replace('%%a%%',data.MasternodeOutputHash+'-'+data.MasternodeOutputIndex)+'">['+ix+']</a>';
                             }
                             ix++;
                         }
-                        for ( var i=0, ien=dashninjatxexplorer[dashninjatestnet].length ; i<ien ; i++ ) {
+                        for ( var i=0, ien=pacninjatxexplorer[pacninjatestnet].length ; i<ien ; i++ ) {
                             if (ix == 0) {
-                                outtxt += '<a href="'+dashninjatxexplorer[dashninjatestnet][0][0].replace('%%a%%',data.MasternodeOutputHash)+'" data-toggle="tooltip" data-placement="left" title="'+data.MasternodeOutputHash+'-'+data.MasternodeOutputIndex+'">'+data.MasternodeOutputHash.substring(0,8)+'...-'+data.MasternodeOutputIndex+'</a>';
+                                outtxt += '<a href="'+pacninjatxexplorer[pacninjatestnet][0][0].replace('%%a%%',data.MasternodeOutputHash)+'" data-toggle="tooltip" data-placement="left" title="'+data.MasternodeOutputHash+'-'+data.MasternodeOutputIndex+'">'+data.MasternodeOutputHash.substring(0,8)+'...-'+data.MasternodeOutputIndex+'</a>';
                             }
                             else {
-                                outtxt += '<a href="'+dashninjatxexplorer[dashninjatestnet][i][0].replace('%%a%%',data.MasternodeOutputHash)+'">['+ix+']</a>';
+                                outtxt += '<a href="'+pacninjatxexplorer[pacninjatestnet][i][0].replace('%%a%%',data.MasternodeOutputHash)+'">['+ix+']</a>';
                             }
                             ix++;
                         }
@@ -604,23 +604,23 @@ $(document).ready(function() {
             { data: null, render: function ( data, type, row) {
                 var outtxt = '';
                 if (type != 'sort') {
-                    if ((dashninjamndetail[dashninjatestnet].length > 0) || (dashninjaaddressexplorer[dashninjatestnet].length > 0)) {
+                    if ((pacninjamndetail[pacninjatestnet].length > 0) || (pacninjaaddressexplorer[pacninjatestnet].length > 0)) {
                         var ix = 0;
-                        for ( var i=0, ien=dashninjamndetail[dashninjatestnet].length ; i<ien ; i++ ) {
+                        for ( var i=0, ien=pacninjamndetail[pacninjatestnet].length ; i<ien ; i++ ) {
                             if (ix == 0) {
-                                outtxt += '<a href="'+dashninjamndetail[dashninjatestnet][0][0].replace('%%a%%',data.MasternodePubkey)+'">'+data.MasternodePubkey+'</a>';
+                                outtxt += '<a href="'+pacninjamndetail[pacninjatestnet][0][0].replace('%%a%%',data.MasternodePubkey)+'">'+data.MasternodePubkey+'</a>';
                             }
                             else {
-                                outtxt += '<a href="'+dashninjamndetail[dashninjatestnet][i][0].replace('%%a%%',data.MasternodePubkey)+'">['+ix+']</a>';
+                                outtxt += '<a href="'+pacninjamndetail[pacninjatestnet][i][0].replace('%%a%%',data.MasternodePubkey)+'">['+ix+']</a>';
                             }
                             ix++;
                         }
-                        for ( var i=0, ien=dashninjaaddressexplorer[dashninjatestnet].length ; i<ien ; i++ ) {
+                        for ( var i=0, ien=pacninjaaddressexplorer[pacninjatestnet].length ; i<ien ; i++ ) {
                             if (ix == 0) {
-                                outtxt += '<a href="'+dashninjaaddressexplorer[dashninjatestnet][0][0].replace('%%a%%',data.MasternodePubkey)+'">'+data.MasternodePubkey+'</a>';
+                                outtxt += '<a href="'+pacninjaaddressexplorer[pacninjatestnet][0][0].replace('%%a%%',data.MasternodePubkey)+'">'+data.MasternodePubkey+'</a>';
                             }
                             else {
-                                outtxt += '<a href="'+dashninjaaddressexplorer[dashninjatestnet][i][0].replace('%%a%%',data.MasternodePubkey)+'">['+ix+']</a>';
+                                outtxt += '<a href="'+pacninjaaddressexplorer[pacninjatestnet][i][0].replace('%%a%%',data.MasternodePubkey)+'">['+ix+']</a>';
                             }
                             ix++;
                         }

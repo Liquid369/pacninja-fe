@@ -2,7 +2,7 @@
 
 /*
     This file is part of Dash Ninja.
-    https://github.com/elbereth/dashninja-fe
+    https://github.com/akshaynexus/pacninja-fe
 
     Dash Ninja is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -22,10 +22,10 @@
 // Copy this file to config.inc.php and change configuration below
 
 // Path to the cache folder (files will be created in there, best if outside www access)
-DEFINE('CACHEFOLDER',"/home/dashninja/cache/");
+DEFINE('CACHEFOLDER',"/home/pacninja/cache/");
 
 // Path to the data folder (must be accessible by the website)
-DEFINE('DATAFOLDER',"/home/dashninja/www/data/");
+DEFINE('DATAFOLDER',"/home/pacninja/www/data/");
 
 // Semaphores
 DEFINE('DMN_CRON_MNFL_SEMAPHORE','/var/run/dash-www-cron-mnfl.pid');
@@ -42,9 +42,9 @@ DEFINE('DMN_CRON_PROTX_SEMAPHORE','/var/run/dash-www-cron-protx.pid');
 DEFINE('DMN_USE_CACHE',true);
 
 // Indicate here all MySQL configuration to connect to Dash Ninja Database
-DEFINE('MYSQLUSER',"dashninja-api");
+DEFINE('MYSQLUSER',"pacninja-api");
 DEFINE('MYSQLPASS',"anyrandompassword");
-DEFINE('MYSQLDATABASE',"dashninja");
+DEFINE('MYSQLDATABASE',"pacninja");
 DEFINE('MYSQLHOST',"localhost");
 
 ?>

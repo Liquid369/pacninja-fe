@@ -1,6 +1,6 @@
 /*
  This file is part of Dash Ninja.
- https://github.com/elbereth/dashninja-fe
+ https://github.com/akshaynexus/pacninja-fe
 
  Dash Ninja is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -17,10 +17,10 @@
 
  */
 
-// Dash Ninja Front-End (dashninja-fe) - Masternode List (v2)
+// Dash Ninja Front-End (pacninja-fe) - Masternode List (v2)
 // By elberethzone / https://dashtalk.org/members/elbereth.175/
 
-var dashninjaversion = '2.1.7';
+var pacninjaversion = '2.1.7';
 var tableLocalNodes = null;
 var tableBlockConsensus = null;
 var tableMNList = null;
@@ -37,43 +37,43 @@ if(typeof(Storage) !== "undefined") {
   }
 }
 
-if (typeof dashninjatestnet === 'undefined') {
-  var dashninjatestnet = 0;
+if (typeof pacninjatestnet === 'undefined') {
+  var pacninjatestnet = 0;
 }
-if (typeof dashninjatestnethost !== 'undefined') {
-  if (window.location.hostname == dashninjatestnethost) {
-    dashninjatestnet = 1;
+if (typeof pacninjatestnethost !== 'undefined') {
+  if (window.location.hostname == pacninjatestnethost) {
+    pacninjatestnet = 1;
   }
 }
 
-if (typeof dashninjamndetail === 'undefined') {
-  var dashninjamndetail = [[],[]];
+if (typeof pacninjamndetail === 'undefined') {
+  var pacninjamndetail = [[],[]];
 }
-if (typeof dashninjamndetail[0] === 'undefined') {
-  dashninjamndetail[0] = [];
+if (typeof pacninjamndetail[0] === 'undefined') {
+  pacninjamndetail[0] = [];
 }
-if (typeof dashninjamndetail[1] === 'undefined') {
-  dashninjamndetail[1] = [];
-}
-
-if (typeof dashninjaaddressexplorer === 'undefined') {
-  var dashninjaaddressexplorer = [[],[]];
-}
-if (typeof dashninjaaddressexplorer[0] === 'undefined') {
-  dashninjaaddressexplorer[0] = [];
-}
-if (typeof dashninjaaddressexplorer[1] === 'undefined') {
-  dashninjaaddressexplorer[1] = [];
+if (typeof pacninjamndetail[1] === 'undefined') {
+  pacninjamndetail[1] = [];
 }
 
-if (typeof dashninjaqueryexplorer === 'undefined') {
-  var dashninjaqueryexplorer = [[],[]];
+if (typeof pacninjaaddressexplorer === 'undefined') {
+  var pacninjaaddressexplorer = [[],[]];
 }
-if (typeof dashninjaqueryexplorer[0] === 'undefined') {
-  dashninjaqueryexplorer[0] = [];
+if (typeof pacninjaaddressexplorer[0] === 'undefined') {
+  pacninjaaddressexplorer[0] = [];
 }
-if (typeof dashninjaqueryexplorer[1] === 'undefined') {
-  dashninjaqueryexplorer[1] = [];
+if (typeof pacninjaaddressexplorer[1] === 'undefined') {
+  pacninjaaddressexplorer[1] = [];
+}
+
+if (typeof pacninjaqueryexplorer === 'undefined') {
+  var pacninjaqueryexplorer = [[],[]];
+}
+if (typeof pacninjaqueryexplorer[0] === 'undefined') {
+  pacninjaqueryexplorer[0] = [];
+}
+if (typeof pacninjaqueryexplorer[1] === 'undefined') {
+  pacninjaqueryexplorer[1] = [];
 }
 
 function tableLocalNodesRefresh(){
@@ -95,7 +95,7 @@ function tableMNListRefresh(){
 };
 
 function mnpaymentsRefresh(){
-  $.getJSON( "/api/masternodes/stats?testnet="+dashninjatestnet, function( data ) {
+  $.getJSON( "/api/masternodes/stats?testnet="+pacninjatestnet, function( data ) {
     var date = new Date();
     var n = date.toDateString();
     var time = date.toLocaleTimeString();
@@ -124,7 +124,7 @@ function getLatestdashVersion() {
    || ( sessionStorage.getItem("nextdashversion") === null )
    || ( sessionStorage.getItem("nextdashversion") < currentdate.getTime() )) && (dashversionsemaphore == false)) {
     dashversionsemaphore = true;
-    $.getJSON( "/dashninja-latestversion.json", function( data ) {
+    $.getJSON( "/pacninja-latestversion.json", function( data ) {
       sessionStorage.setItem('currentdashversion', data.version.string);
       var currentdate = new Date();
       currentdate = new Date(currentdate.getTime() + 15*60000);
@@ -145,9 +145,9 @@ function getLatestdashVersion() {
 
 $(document).ready(function(){
 
-  $('#dashninjajsversion').text( dashninjaversion );
+  $('#pacninjajsversion').text( pacninjaversion );
 
-  if (dashninjatestnet == 1) {
+  if (pacninjatestnet == 1) {
     $('#testnetalert').show();
   }
 
@@ -155,22 +155,22 @@ $(document).ready(function(){
 
   var pkutxt = '<ul>';
   var ix = 0;
-  for ( var i=0, ien=dashninjamndetail[dashninjatestnet].length ; i<ien ; i++ ) {
+  for ( var i=0, ien=pacninjamndetail[pacninjatestnet].length ; i<ien ; i++ ) {
     if (ix == 0) {
       pkutxt += '<li>[Link]';
     } else {
       pkutxt += '<li>['+ix+']';
     }
-    pkutxt += ' '+dashninjamndetail[dashninjatestnet][i][1]+"</li>";
+    pkutxt += ' '+pacninjamndetail[pacninjatestnet][i][1]+"</li>";
     ix++;
   }
-  for ( var i=0, ien=dashninjaaddressexplorer[dashninjatestnet].length ; i<ien ; i++ ) {
+  for ( var i=0, ien=pacninjaaddressexplorer[pacninjatestnet].length ; i<ien ; i++ ) {
     if (ix == 0) {
       pkutxt += '<li>[Link]';
     } else {
       pkutxt += '<li>['+ix+']';
     }
-    pkutxt += ' '+dashninjaaddressexplorer[dashninjatestnet][i][1]+"</li>";
+    pkutxt += ' '+pacninjaaddressexplorer[pacninjatestnet][i][1]+"</li>";
     ix++;
   }
   pkutxt += '</ul>';
@@ -185,7 +185,7 @@ $(document).ready(function(){
       } );
    tableLocalNodes = $('#localnodes').dataTable( {
         dom: "Tfrtp",
-        ajax: "/api/nodes?testnet="+dashninjatestnet,
+        ajax: "/api/nodes?testnet="+pacninjatestnet,
         "paging": false,
         columns: [
             { data: "NodeName" },
@@ -231,10 +231,10 @@ $(document).ready(function(){
                var outtxt = '';
                if ((data.NodeEnabled != 0) && (data.NodeProcessStatus == 'running')) {
                  if (type != 'sort') {
-                   if (dashninjablockexplorer[dashninjatestnet].length > 0) {
-                     outtxt += '<a href="'+dashninjablockexplorer[dashninjatestnet][0][0].replace('%%b%%',data.NodeLastBlockHash)+'">'+data.NodeLastBlockHash+'</a>';
-                     for ( var i=1, ien=dashninjablockexplorer[dashninjatestnet].length ; i<ien ; i++ ) {
-                       outtxt += '<a href="'+dashninjablockexplorer[dashninjatestnet][i][0].replace('%%b%%',data.NodeLastBlockHash)+'">['+i+']</a>';
+                   if (pacninjablockexplorer[pacninjatestnet].length > 0) {
+                     outtxt += '<a href="'+pacninjablockexplorer[pacninjatestnet][0][0].replace('%%b%%',data.NodeLastBlockHash)+'">'+data.NodeLastBlockHash+'</a>';
+                     for ( var i=1, ien=pacninjablockexplorer[pacninjatestnet].length ; i<ien ; i++ ) {
+                       outtxt += '<a href="'+pacninjablockexplorer[pacninjatestnet][i][0].replace('%%b%%',data.NodeLastBlockHash)+'">['+i+']</a>';
                      }
                    }
                  }
@@ -263,7 +263,7 @@ $(document).ready(function(){
       } );
    tableBlockConsensus = $('#blockconsensus').dataTable( {
         dom: "Trtp",
-        ajax: "/api/blocks/consensus?testnet="+dashninjatestnet,
+        ajax: "/api/blocks/consensus?testnet="+pacninjatestnet,
         "paging": false,
         "order": [[ 0, "desc" ]],
         columns: [
@@ -404,7 +404,7 @@ $(document).ready(function(){
         }
    } );
    tableMNList = $('#mnlist').dataTable( {
-        ajax: "/api/masternodes?testnet="+dashninjatestnet+"&portcheck=1&balance=1&lastpaid=1&prev12=1",
+        ajax: "/api/masternodes?testnet="+pacninjatestnet+"&portcheck=1&balance=1&lastpaid=1&prev12=1",
         lengthMenu: [ [50, 100, 250, 500, -1], [50, 100, 250, 500, "All"] ],
         pageLength: 50,
         columns: [
@@ -443,23 +443,23 @@ $(document).ready(function(){
             { data: null, render: function ( data, type, row) {
                var outtxt = '';
                if (type != 'sort') {
-                 if ((dashninjamndetail[dashninjatestnet].length > 0) || (dashninjaaddressexplorer[dashninjatestnet].length > 0)) {
+                 if ((pacninjamndetail[pacninjatestnet].length > 0) || (pacninjaaddressexplorer[pacninjatestnet].length > 0)) {
                    var ix = 0;
-                   for ( var i=0, ien=dashninjamndetail[dashninjatestnet].length ; i<ien ; i++ ) {
+                   for ( var i=0, ien=pacninjamndetail[pacninjatestnet].length ; i<ien ; i++ ) {
                      if (ix == 0) {
-                       outtxt += '<a href="'+dashninjamndetail[dashninjatestnet][0][0].replace('%%a%%',data.MNPubKey)+'">'+data.MNPubKey+'</a>';
+                       outtxt += '<a href="'+pacninjamndetail[pacninjatestnet][0][0].replace('%%a%%',data.MNPubKey)+'">'+data.MNPubKey+'</a>';
                      }
                      else {
-                       outtxt += '<a href="'+dashninjamndetail[dashninjatestnet][i][0].replace('%%a%%',data.MNPubKey)+'">['+ix+']</a>';
+                       outtxt += '<a href="'+pacninjamndetail[pacninjatestnet][i][0].replace('%%a%%',data.MNPubKey)+'">['+ix+']</a>';
                      }
                      ix++;
                    }
-                   for ( var i=0, ien=dashninjaaddressexplorer[dashninjatestnet].length ; i<ien ; i++ ) {
+                   for ( var i=0, ien=pacninjaaddressexplorer[pacninjatestnet].length ; i<ien ; i++ ) {
                      if (ix == 0) {
-                       outtxt += '<a href="'+dashninjaaddressexplorer[dashninjatestnet][0][0].replace('%%a%%',data.MNPubKey)+'">'+data.MNPubKey+'</a>';
+                       outtxt += '<a href="'+pacninjaaddressexplorer[pacninjatestnet][0][0].replace('%%a%%',data.MNPubKey)+'">'+data.MNPubKey+'</a>';
                      }
                      else {
-                       outtxt += '<a href="'+dashninjaaddressexplorer[dashninjatestnet][i][0].replace('%%a%%',data.MNPubKey)+'">['+ix+']</a>';
+                       outtxt += '<a href="'+pacninjaaddressexplorer[pacninjatestnet][i][0].replace('%%a%%',data.MNPubKey)+'">['+ix+']</a>';
                      }
                      ix++;
                    }
@@ -490,10 +490,10 @@ $(document).ready(function(){
                  }
                  else {
                    var outtxt = '';
-                   if (dashninjaqueryexplorer[dashninjatestnet].length > 0) {
-                     outtxt += '<a href="'+dashninjaqueryexplorer[dashninjatestnet][0][0].replace('%%q%%',data.LastPaid.MNLastPaidBlock)+'">'+deltaTimeStampHR(data.LastPaid.MNLastPaidTime,currenttimestamp())+'</a>';
-                     for ( var i=1, ien=dashninjaqueryexplorer[dashninjatestnet].length ; i<ien ; i++ ) {
-                       outtxt += '<a href="'+dashninjaqueryexplorer[dashninjatestnet][i][0].replace('%%q%%',data.LastPaid.MNLastPaidBlock)+'">['+i+']</a>';
+                   if (pacninjaqueryexplorer[pacninjatestnet].length > 0) {
+                     outtxt += '<a href="'+pacninjaqueryexplorer[pacninjatestnet][0][0].replace('%%q%%',data.LastPaid.MNLastPaidBlock)+'">'+deltaTimeStampHR(data.LastPaid.MNLastPaidTime,currenttimestamp())+'</a>';
+                     for ( var i=1, ien=pacninjaqueryexplorer[pacninjatestnet].length ; i<ien ; i++ ) {
+                       outtxt += '<a href="'+pacninjaqueryexplorer[pacninjatestnet][i][0].replace('%%q%%',data.LastPaid.MNLastPaidBlock)+'">['+i+']</a>';
                      }
                    }
                    else {

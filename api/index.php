@@ -2,7 +2,7 @@
 
 /*
     This file is part of Dash Ninja.
-    https://github.com/elbereth/dashninja-fe
+    https://github.com/akshaynexus/pacninja-fe
 
     Dash Ninja is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -197,7 +197,7 @@ $app->get('/api/blocks', function() use ($app,&$mysqli) {
   }
   else {
     $cacheserial = sha1(serialize($mnpubkeys).serialize($budgetids));
-    $cachefnam = CACHEFOLDER.sprintf("dashninja_blocks_%d_%d_%s_%d_%d_%d_%s",$testnet,$cachenodetail,$cacheinterval,count($mnpubkeys),$onlysuperblocks,count($budgetids),$cacheserial);
+    $cachefnam = CACHEFOLDER.sprintf("pacninja_blocks_%d_%d_%s_%d_%d_%d_%s",$testnet,$cachenodetail,$cacheinterval,count($mnpubkeys),$onlysuperblocks,count($budgetids),$cacheserial);
     $cachefnamupdate = $cachefnam.".update";
     $cachevalid = (is_readable($cachefnam) && (((filemtime($cachefnam)+$cachetime)>=time()) || file_exists($cachefnamupdate)));
     if (DMN_USE_CACHE && $cachevalid) {
@@ -693,7 +693,7 @@ $app->get('/api/blocks/superblocks', function() use ($app,&$mysqli) {
     }
     else {
         $cacheserial = sha1(serialize($proposalshash));
-        $cachefnam = CACHEFOLDER.sprintf("dashninja_blocks_superblockspayments_%d_%d_%s",$testnet,count($proposalshash),$cacheserial);
+        $cachefnam = CACHEFOLDER.sprintf("pacninja_blocks_superblockspayments_%d_%d_%s",$testnet,count($proposalshash),$cacheserial);
         $cachefnamupdate = $cachefnam.".update";
         $cachevalid = (is_readable($cachefnam) && (((filemtime($cachefnam)+$cachetime)>=time()) || file_exists($cachefnamupdate)));
         if (DMN_USE_CACHE && $cachevalid) {
@@ -867,7 +867,7 @@ $app->get('/api/budgets', function() use ($app,&$mysqli) {
   }
   else {
     $cacheserial = sha1(serialize($budgetids).serialize($budgethashes));
-    $cachefnam = CACHEFOLDER.sprintf("dashninja_budgets_%d_%d_%d_%d_%s",$testnet,$onlyvalid,count($budgetids),count($budgethashes),$cacheserial);
+    $cachefnam = CACHEFOLDER.sprintf("pacninja_budgets_%d_%d_%d_%d_%s",$testnet,$onlyvalid,count($budgetids),count($budgethashes),$cacheserial);
     $cachefnamupdate = $cachefnam.".update";
     $cachevalid = (is_readable($cachefnam) && (((filemtime($cachefnam)+120)>=time()) || file_exists($cachefnamupdate)));
     if (DMN_USE_CACHE && $cachevalid) {
@@ -1050,7 +1050,7 @@ $app->get('/api/budgetsexpected', function() use ($app,&$mysqli) {
     $response->setJsonContent(array('status' => 'ERROR', 'messages' => $errmsg));
   }
   else {
-    $cachefnam = CACHEFOLDER . sprintf("dashninja_budgets_final_%d", $testnet);
+    $cachefnam = CACHEFOLDER . sprintf("pacninja_budgets_final_%d", $testnet);
     $cachefnamupdate = $cachefnam . ".update";
     $cachetime = filemtime($cachefnam);
     $cachevalid = (is_readable($cachefnam) && ((($cachetime + 120) >= time()) || file_exists($cachefnamupdate)));
@@ -1204,7 +1204,7 @@ $app->get('/api/budgets/votes', function() use ($app,&$mysqli) {
   }
   else {
     $cacheserial = sha1(serialize($budgetid));
-    $cachefnam = CACHEFOLDER.sprintf("dashninja_budgets_votes_%d_%d_%s",$testnet,$onlyvalid,$cacheserial);
+    $cachefnam = CACHEFOLDER.sprintf("pacninja_budgets_votes_%d_%d_%s",$testnet,$onlyvalid,$cacheserial);
     $cachefnamupdate = $cachefnam.".update";
     $cachetime = filemtime($cachefnam);
     $cachevalid = (is_readable($cachefnam) && ((($cachetime+120)>=time()) || file_exists($cachefnamupdate)));
@@ -1375,7 +1375,7 @@ $app->get('/api/budgetsprojection', function() use ($app,&$mysqli) {
   }
   else {
     $cacheserial = sha1(serialize($budgetids).serialize($budgethashes));
-    $cachefnam = CACHEFOLDER.sprintf("dashninja_budgetsprojection_%d_%d_%d_%d_%s",$testnet,$onlyvalid,count($budgetids),count($budgethashes),$cacheserial);
+    $cachefnam = CACHEFOLDER.sprintf("pacninja_budgetsprojection_%d_%d_%d_%d_%s",$testnet,$onlyvalid,count($budgetids),count($budgethashes),$cacheserial);
     $cachefnamupdate = $cachefnam.".update";
     $cachevalid = (is_readable($cachefnam) && (((filemtime($cachefnam)+120)>=time()) || file_exists($cachefnamupdate)));
     if (DMN_USE_CACHE && $cachevalid) {
@@ -1609,7 +1609,7 @@ $app->get('/api/governanceproposals', function() use ($app,&$mysqli) {
     }
     else {
         $cacheserial = sha1(serialize($proposalsnames).serialize($proposalshashes));
-        $cachefnam = CACHEFOLDER.sprintf("dashninja_governanceproposals_%d_%d_%d_%d_%s",$testnet,$onlyvalid,count($proposalsnames),count($proposalshashes),$cacheserial);
+        $cachefnam = CACHEFOLDER.sprintf("pacninja_governanceproposals_%d_%d_%d_%d_%s",$testnet,$onlyvalid,count($proposalsnames),count($proposalshashes),$cacheserial);
         $cachefnamupdate = $cachefnam.".update";
         $cachevalid = (is_readable($cachefnam) && (((filemtime($cachefnam)+120)>=time()) || file_exists($cachefnamupdate)));
         if (DMN_USE_CACHE && $cachevalid) {
@@ -1817,7 +1817,7 @@ $app->get('/api/governanceproposals/votelimit', function() use ($app,&$mysqli) {
         }
     }
 
-    $cachefnam = CACHEFOLDER.sprintf("dashninja_governanceproposals_votelimit_%d",$testnet);
+    $cachefnam = CACHEFOLDER.sprintf("pacninja_governanceproposals_votelimit_%d",$testnet);
     $cachefnamupdate = $cachefnam.".update";
     $cachevalid = (is_readable($cachefnam) && (((filemtime($cachefnam)+120)>=time()) || file_exists($cachefnamupdate)));
     if (DMN_USE_CACHE && $cachevalid) {
@@ -1986,7 +1986,7 @@ $app->get('/api/governanceproposals/votes', function() use ($app,&$mysqli) {
     }
     else {
         $cacheserial = sha1(serialize($budgetid));
-        $cachefnam = CACHEFOLDER.sprintf("dashninja_governanceproposals_votes_%d_%s",$testnet,$cacheserial);
+        $cachefnam = CACHEFOLDER.sprintf("pacninja_governanceproposals_votes_%d_%s",$testnet,$cacheserial);
         $cachefnamupdate = $cachefnam.".update";
         $cachetime = filemtime($cachefnam);
         $cachevalid = (is_readable($cachefnam) && ((($cachetime+120)>=time()) || file_exists($cachefnamupdate)));
@@ -2126,7 +2126,7 @@ $app->get('/api/governancetriggers', function() use ($app,&$mysqli) {
         $response->setJsonContent(array('status' => 'ERROR', 'messages' => $errmsg));
     }
     else {
-        $cachefnam = CACHEFOLDER.sprintf("dashninja_governancetriggers_%d_%d_%d_%d",$testnet,$onlyvalid,$onlyfuture,$afterblockheight);
+        $cachefnam = CACHEFOLDER.sprintf("pacninja_governancetriggers_%d_%d_%d_%d",$testnet,$onlyvalid,$onlyfuture,$afterblockheight);
         $cachefnamupdate = $cachefnam.".update";
         $cachevalid = (is_readable($cachefnam) && (((filemtime($cachefnam)+120)>=time()) || file_exists($cachefnamupdate)));
         if (DMN_USE_CACHE && $cachevalid) {
@@ -2346,7 +2346,7 @@ $app->get('/api/masternodes', function() use ($app,&$mysqli) {
   }
 
   if ($protocol == -1) {
-    $cachefnam = CACHEFOLDER.sprintf("dashninja_maxprotocol_%d",$testnet);
+    $cachefnam = CACHEFOLDER.sprintf("pacninja_maxprotocol_%d",$testnet);
     $cachevalid = (is_readable($cachefnam) && ((filemtime($cachefnam)+300)>=time()));
     if (DMN_USE_CACHE && $cachevalid) {
       $protocol = unserialize(file_get_contents($cachefnam));
@@ -3207,7 +3207,7 @@ $app->get('/api/tablevars', function() use ($app,&$mysqli) {
     $response->setJsonContent(array('status' => 'ERROR', 'messages' => array('Payload (or CONTENT_LENGTH) is missing')));
   }
   else {
-    $cachefnam = CACHEFOLDER."dashninja_tablevars";
+    $cachefnam = CACHEFOLDER."pacninja_tablevars";
     $cachefnamupdate = $cachefnam.".update";
     $cachevalid = (is_readable($cachefnam) && (((filemtime($cachefnam)+60)>=time()) || file_exists($cachefnamupdate)));
     if (DMN_USE_CACHE && $cachevalid) {

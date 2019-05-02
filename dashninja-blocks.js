@@ -1,6 +1,6 @@
 /*
  This file is part of Dash Ninja.
- https://github.com/elbereth/dashninja-fe
+ https://github.com/akshaynexus/pacninja-fe
 
  Dash Ninja is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -17,10 +17,10 @@
 
  */
 
-// Dash Ninja Front-End (dashninja-fe) - Blocks (v2)
+// Dash Ninja Front-End (pacninja-fe) - Blocks (v2)
 // By elberethzone / https://dashtalk.org/members/elbereth.175/
 
-var dashninjaversion = '2.5.10';
+var pacninjaversion = '2.5.10';
 var tableBlocks = null;
 var tablePerVersion = null;
 var tablePerMiner = null;
@@ -31,35 +31,35 @@ var maxblockversiondesc = '';
 
 $.fn.dataTable.ext.errMode = 'throw';
 
-var dashninjatestnet = 0;
+var pacninjatestnet = 0;
 
-if (typeof dashninjatestnethost !== 'undefined') {
-  if (window.location.hostname == dashninjatestnethost) {
-    dashninjatestnet = 1;
+if (typeof pacninjatestnethost !== 'undefined') {
+  if (window.location.hostname == pacninjatestnethost) {
+    pacninjatestnet = 1;
   }
 }
-if (typeof dashninjatestnettor !== 'undefined') {
-    if (window.location.hostname == dashninjatestnettor) {
-        dashninjatestnet = 1;
+if (typeof pacninjatestnettor !== 'undefined') {
+    if (window.location.hostname == pacninjatestnettor) {
+        pacninjatestnet = 1;
     }
 }
-if (typeof dashninjatestneti2p !== 'undefined') {
-    if (window.location.hostname == dashninjatestneti2p) {
-        dashninjatestnet = 1;
+if (typeof pacninjatestneti2p !== 'undefined') {
+    if (window.location.hostname == pacninjatestneti2p) {
+        pacninjatestnet = 1;
     }
 }
 
-if (typeof dashninjacoin === 'undefined') {
-  var dashninjacoin = ['',''];
+if (typeof pacninjacoin === 'undefined') {
+  var pacninjacoin = ['',''];
 }
-if (typeof dashninjaaddressexplorer === 'undefined') {
-  var dashninjaaddressexplorer = [[],[]];
+if (typeof pacninjaaddressexplorer === 'undefined') {
+  var pacninjaaddressexplorer = [[],[]];
 }
-if (typeof dashninjaaddressexplorer[0] === 'undefined') {
-  dashninjaaddressexplorer[0] = [];
+if (typeof pacninjaaddressexplorer[0] === 'undefined') {
+  pacninjaaddressexplorer[0] = [];
 }
-if (typeof dashninjaaddressexplorer[1] === 'undefined') {
-  dashninjaaddressexplorer[1] = [];
+if (typeof pacninjaaddressexplorer[1] === 'undefined') {
+  pacninjaaddressexplorer[1] = [];
 }
 
 function tableBlocksRefresh(){
@@ -80,30 +80,30 @@ function tableBlockFilterReset() {
 
 $(document).ready(function(){
 
-  $('#dashninjajsversion').text( dashninjaversion ).addClass("label-info").removeClass("label-danger");
+  $('#pacninjajsversion').text( pacninjaversion ).addClass("label-info").removeClass("label-danger");
 
-  if (dashninjatestnet == 1) {
+  if (pacninjatestnet == 1) {
       $('#testnetalert').show();
-      $('a[name=menuitemexplorer]').attr("href", "https://" + dashninjatestnetexplorer);
-      if (typeof dashninjatestnettor !== 'undefined') {
-          $('a[name=dashninjatorurl]').attr("href", "http://"+dashninjatestnettor+"/blocks.html");
-          $('span[name=dashninjatordisplay]').show();
+      $('a[name=menuitemexplorer]').attr("href", "https://" + pacninjatestnetexplorer);
+      if (typeof pacninjatestnettor !== 'undefined') {
+          $('a[name=pacninjatorurl]').attr("href", "http://"+pacninjatestnettor+"/blocks.html");
+          $('span[name=pacninjatordisplay]').show();
       }
 
-      if (typeof dashninjatestneti2p !== 'undefined') {
-          $('a[name=dashninjai2purl]').attr("href", "http://" + dashninjatestneti2p + "/blocks.html");
-          $('span[name=dashninjai2pdisplay]').show();
+      if (typeof pacninjatestneti2p !== 'undefined') {
+          $('a[name=pacninjai2purl]').attr("href", "http://" + pacninjatestneti2p + "/blocks.html");
+          $('span[name=pacninjai2pdisplay]').show();
       }
   }
   else {
-        if (typeof dashninjator !== 'undefined') {
-            $('a[name=dashninjatorurl]').attr("href", "http://"+dashninjator+"/blocks.html");
-            $('span[name=dashninjatordisplay]').show();
+        if (typeof pacninjator !== 'undefined') {
+            $('a[name=pacninjatorurl]').attr("href", "http://"+pacninjator+"/blocks.html");
+            $('span[name=pacninjatordisplay]').show();
         }
 
-        if (typeof dashninjai2p !== 'undefined') {
-            $('a[name=dashninjai2purl]').attr("href", "http://" + dashninjai2p + "/blocks.html");
-            $('span[name=dashninjai2pdisplay]').show();
+        if (typeof pacninjai2p !== 'undefined') {
+            $('a[name=pacninjai2purl]').attr("href", "http://" + pacninjai2p + "/blocks.html");
+            $('span[name=pacninjai2pdisplay]').show();
         }
   }
 
@@ -306,8 +306,8 @@ $(document).ready(function(){
 
    $('#blockstable').on('xhr.dt', function ( e, settings, json ) {
         // Show global stats
-        $('#globalsupplyamount').text( addCommas( json.data.stats.global.SupplyAmount) +' '+dashninjacoin[dashninjatestnet] );
-        $('#globalmnamount').text( addCommas( json.data.stats.global.MNPaymentsAmount) +' '+dashninjacoin[dashninjatestnet] );
+        $('#globalsupplyamount').text( addCommas( json.data.stats.global.SupplyAmount) +' '+pacninjacoin[pacninjatestnet] );
+        $('#globalmnamount').text( addCommas( json.data.stats.global.MNPaymentsAmount) +' '+pacninjacoin[pacninjatestnet] );
         $('#globalpayed').text( (Math.round( json.data.stats.global.RatioBlocksPayed * 10000 ) / 100) +'%' );
         $('#globalcorrectlypayed').text( (Math.round( json.data.stats.global.RatioBlocksPayedCorrectly * 10000 ) / 100) +'%' );
         $('#globalcurrentmnratio').text( (Math.round( json.data.blocks[0].BlockMNValueRatioExpected * 1000 ) / 10) );
@@ -352,7 +352,7 @@ $(document).ready(function(){
         $('#blockstableLR').text( n + ' ' + time );
       } );
    tableBlocks = $('#blockstable').dataTable( {
-        ajax: { url: "/data/blocks24h-"+dashninjatestnet+".json",
+        ajax: { url: "/data/blocks24h-"+pacninjatestnet+".json",
                 dataSrc: 'data.blocks',
                 cache: true },
         lengthMenu: [ [20, 70, 136, 272, -1], ["20 (~1h)", "70 (~3h)", "136 (~6h)", "272 (~12h)", "All (24h)"] ],
@@ -372,8 +372,8 @@ $(document).ready(function(){
             { data: null, render: function ( data, type, row ) {
                var outtxt = data.BlockId;
                if (type != 'sort') {
-                 if (dashninjablockexplorer[dashninjatestnet].length > 0) {
-                   outtxt = '<a href="'+dashninjablockexplorer[dashninjatestnet][0][0].replace('%%b%%',data.BlockHash)+'">'+data.BlockId+'</a>';
+                 if (pacninjablockexplorer[pacninjatestnet].length > 0) {
+                   outtxt = '<a href="'+pacninjablockexplorer[pacninjatestnet][0][0].replace('%%b%%',data.BlockHash)+'">'+data.BlockId+'</a>';
                  }
                }
                return outtxt;
@@ -407,10 +407,10 @@ $(document).ready(function(){
                             return '<a href="/governance.html#superblocks">' + data.SuperBlockBudgetPayees + ' proposal(s) paid</a>';
                         } else {
                             if (data.IsSuperBlock) {
-                                return '<a href="' + dashninjabudgetdetail[dashninjatestnet].replace('%%b%%',encodeURIComponent(data.SuperBlockBudgetName)) + '">' + data.SuperBlockBudgetName + '</a>';
+                                return '<a href="' + pacninjabudgetdetail[pacninjatestnet].replace('%%b%%',encodeURIComponent(data.SuperBlockBudgetName)) + '">' + data.SuperBlockBudgetName + '</a>';
                             }
                             else {
-                                return '<a href="' + dashninjamasternodemonitoring[dashninjatestnet].replace('%%p%%', data.BlockMNPayee) + '">' + data.BlockMNPayee + '</a>';
+                                return '<a href="' + pacninjamasternodemonitoring[pacninjatestnet].replace('%%p%%', data.BlockMNPayee) + '">' + data.BlockMNPayee + '</a>';
                             }
                         }
                     }

@@ -1,6 +1,6 @@
 /*
  This file is part of Dash Ninja.
- https://github.com/elbereth/dashninja-fe
+ https://github.com/akshaynexus/pacninja-fe
 
  Dash Ninja is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -17,10 +17,10 @@
 
  */
 
-// Dash Ninja Front-End (dashninja-fe) - Budgets
+// Dash Ninja Front-End (pacninja-fe) - Budgets
 // By elberethzone / https://dashtalk.org/members/elbereth.175/
 
-var dashninjaversion = '1.5.2';
+var pacninjaversion = '1.5.2';
 var tableBudgets = null;
 var tableBudgetsProjection = null;
 var tableSuperBlocks = null;
@@ -36,45 +36,45 @@ var arrayMonthlyPayments = [];
 
 $.fn.dataTable.ext.errMode = 'throw';
 
-var dashninjatestnet = 0;
+var pacninjatestnet = 0;
 
-if (typeof dashninjatestnethost !== 'undefined') {
-    if (window.location.hostname == dashninjatestnethost) {
-        dashninjatestnet = 1;
+if (typeof pacninjatestnethost !== 'undefined') {
+    if (window.location.hostname == pacninjatestnethost) {
+        pacninjatestnet = 1;
     }
 }
-if (typeof dashninjatestnettor !== 'undefined') {
-    if (window.location.hostname == dashninjatestnettor) {
-        dashninjatestnet = 1;
+if (typeof pacninjatestnettor !== 'undefined') {
+    if (window.location.hostname == pacninjatestnettor) {
+        pacninjatestnet = 1;
     }
 }
-if (typeof dashninjatestneti2p !== 'undefined') {
-    if (window.location.hostname == dashninjatestneti2p) {
-        dashninjatestnet = 1;
+if (typeof pacninjatestneti2p !== 'undefined') {
+    if (window.location.hostname == pacninjatestneti2p) {
+        pacninjatestnet = 1;
     }
 }
 
-if (typeof dashninjacoin === 'undefined') {
-    var dashninjacoin = ['',''];
+if (typeof pacninjacoin === 'undefined') {
+    var pacninjacoin = ['',''];
 }
-if (typeof dashninjaaddressexplorer === 'undefined') {
-    var dashninjaaddressexplorer = [[],[]];
+if (typeof pacninjaaddressexplorer === 'undefined') {
+    var pacninjaaddressexplorer = [[],[]];
 }
-if (typeof dashninjaaddressexplorer[0] === 'undefined') {
-    dashninjaaddressexplorer[0] = [];
+if (typeof pacninjaaddressexplorer[0] === 'undefined') {
+    pacninjaaddressexplorer[0] = [];
 }
-if (typeof dashninjaaddressexplorer[1] === 'undefined') {
-    dashninjaaddressexplorer[1] = [];
+if (typeof pacninjaaddressexplorer[1] === 'undefined') {
+    pacninjaaddressexplorer[1] = [];
 }
 
-if (typeof dashninjatxexplorer === 'undefined') {
-    var dashninjatxexplorer = [[],[]];
+if (typeof pacninjatxexplorer === 'undefined') {
+    var pacninjatxexplorer = [[],[]];
 }
-if (typeof dashninjatxexplorer[0] === 'undefined') {
-    dashninjatxexplorer[0] = [];
+if (typeof pacninjatxexplorer[0] === 'undefined') {
+    pacninjatxexplorer[0] = [];
 }
-if (typeof dashninjatxexplorer[1] === 'undefined') {
-    dashninjatxexplorer[1] = [];
+if (typeof pacninjatxexplorer[1] === 'undefined') {
+    pacninjatxexplorer[1] = [];
 }
 
 function tableBudgetsRefresh(){
@@ -104,11 +104,11 @@ function tableSuperBlocksExpectedRefresh(){
 
 $(document).ready(function(){
 
-    $('#dashninjajsversion').text( dashninjaversion );
+    $('#pacninjajsversion').text( pacninjaversion );
 
-    if (dashninjatestnet == 1) {
+    if (pacninjatestnet == 1) {
         $('#testnetalert').show();
-        $('a[name=menuitemexplorer]').attr("href", "https://"+dashninjatestnetexplorer);
+        $('a[name=menuitemexplorer]').attr("href", "https://"+pacninjatestnetexplorer);
     }
 
     $('#budgetsdetailtable').on('xhr.dt', function ( e, settings, json ) {
@@ -123,14 +123,14 @@ $(document).ready(function(){
         // Show global stats
         $('#globalvalidbudget').text(json.data.stats.budgetvalid);
         $('#globalestablishedbudget').text(json.data.stats.budgetvalid);
-        $('#globalestablishedbudgetamount').text(addCommas(totalamount)+' '+dashninjacoin[dashninjatestnet]);
+        $('#globalestablishedbudgetamount').text(addCommas(totalamount)+' '+pacninjacoin[pacninjatestnet]);
         var nextsuperblockdatetimestamp = json.data.stats.latestblock.BlockTime+(((json.data.stats.nextsuperblock.blockheight-json.data.stats.latestblock.BlockId)/553)*86400);
         var datesuperblock = new Date(nextsuperblockdatetimestamp*1000);
         $('#globalnextsuperblockdate').text(datesuperblock.toLocaleString());
         $('#globalnextsuperblockremaining').text(deltaTimeStampHRlong(nextsuperblockdatetimestamp,currenttimestamp()));
         $('#globalnextsuperblockid').text(json.data.stats.nextsuperblock.blockheight);
-        $('#globalnextsuperblockamount').text(addCommas(Math.round(json.data.stats.nextsuperblock.estimatedbudgetamount*100)/100)+' '+dashninjacoin[dashninjatestnet]);
-//        $('#globalnextsuperblockunallocated').text(addCommas(Math.round((json.data.stats.nextsuperblock.estimatedbudgetamount-totalamount)*100)/100)+' '+dashninjacoin[dashninjatestnet]);
+        $('#globalnextsuperblockamount').text(addCommas(Math.round(json.data.stats.nextsuperblock.estimatedbudgetamount*100)/100)+' '+pacninjacoin[pacninjatestnet]);
+//        $('#globalnextsuperblockunallocated').text(addCommas(Math.round((json.data.stats.nextsuperblock.estimatedbudgetamount-totalamount)*100)/100)+' '+pacninjacoin[pacninjatestnet]);
 
         // Store information for future use
         latestblock = json.data.stats.latestblock;
@@ -144,7 +144,7 @@ $(document).ready(function(){
         $('#budgetstableLR').text( n + ' ' + time );
     } );
     tableBudgets = $('#budgetsdetailtable').dataTable( {
-        ajax: { url: "/api/budgets?testnet="+dashninjatestnet,
+        ajax: { url: "/api/budgets?testnet="+pacninjatestnet,
             dataSrc: 'data.budgets' },
         paging: false,
         order: [[ 0, "desc" ]],
@@ -160,7 +160,7 @@ $(document).ready(function(){
             { data: null, render: function ( data, type, row ) {
                 var outtxt = data.ID;
                 if (type != 'sort') {
-                    outtxt = '<a href="'+dashninjabudgetdetail[dashninjatestnet].replace('%%b%%',data.ID)+'">'+data.ID+'</a>';
+                    outtxt = '<a href="'+pacninjabudgetdetail[pacninjatestnet].replace('%%b%%',data.ID)+'">'+data.ID+'</a>';
                 }
                 return outtxt;
             } },
@@ -180,14 +180,14 @@ $(document).ready(function(){
                 }
                 else {
 
-                    if (dashninjatxexplorer[dashninjatestnet].length > 0) {
+                    if (pacninjatxexplorer[pacninjatestnet].length > 0) {
                         var ix = 0;
-                        for ( var i=0, ien=dashninjatxexplorer[dashninjatestnet].length ; i<ien ; i++ ) {
+                        for ( var i=0, ien=pacninjatxexplorer[pacninjatestnet].length ; i<ien ; i++ ) {
                             if (ix == 0) {
-                                outtxt += '<a href="'+dashninjatxexplorer[dashninjatestnet][0][0].replace('%%a%%',data.FeeHash)+'">'+data.FeeHash.substring(0,7)+'</a>';
+                                outtxt += '<a href="'+pacninjatxexplorer[pacninjatestnet][0][0].replace('%%a%%',data.FeeHash)+'">'+data.FeeHash.substring(0,7)+'</a>';
                             }
                             else {
-                                outtxt += '<a href="'+dashninjatxexplorer[dashninjatestnet][i][0].replace('%%a%%',data.FeeHash)+'">['+ix+']</a>';
+                                outtxt += '<a href="'+pacninjatxexplorer[pacninjatestnet][i][0].replace('%%a%%',data.FeeHash)+'">['+ix+']</a>';
                             }
                             ix++;
                         }
@@ -215,7 +215,7 @@ $(document).ready(function(){
                     return data.TotalPayment;
                 }
                 else {
-                    return addCommas(data.TotalPayment+' '+dashninjacoin[dashninjatestnet]);
+                    return addCommas(data.TotalPayment+' '+pacninjacoin[pacninjatestnet]);
                 }
 
             } },
@@ -224,7 +224,7 @@ $(document).ready(function(){
                     return data.MonthlyPayment;
                 }
                 else {
-                    return addCommas(data.MonthlyPayment+' '+dashninjacoin[dashninjatestnet]);
+                    return addCommas(data.MonthlyPayment+' '+pacninjacoin[pacninjatestnet]);
                 }
 
             } },
@@ -234,14 +234,14 @@ $(document).ready(function(){
                     outtxt = data.PaymentAddress;
                 }
                 else {
-                    if (dashninjaaddressexplorer[dashninjatestnet].length > 0) {
+                    if (pacninjaaddressexplorer[pacninjatestnet].length > 0) {
                         var ix = 0;
-                        for ( var i=0, ien=dashninjaaddressexplorer[dashninjatestnet].length ; i<ien ; i++ ) {
+                        for ( var i=0, ien=pacninjaaddressexplorer[pacninjatestnet].length ; i<ien ; i++ ) {
                             if (ix == 0) {
-                                outtxt += '<a href="'+dashninjaaddressexplorer[dashninjatestnet][0][0].replace('%%a%%',data.PaymentAddress)+'">'+data.PaymentAddress+'</a>';
+                                outtxt += '<a href="'+pacninjaaddressexplorer[pacninjatestnet][0][0].replace('%%a%%',data.PaymentAddress)+'">'+data.PaymentAddress+'</a>';
                             }
                             else {
-                                outtxt += '<a href="'+dashninjaaddressexplorer[dashninjatestnet][i][0].replace('%%a%%',data.PaymentAddress)+'">['+ix+']</a>';
+                                outtxt += '<a href="'+pacninjaaddressexplorer[pacninjatestnet][i][0].replace('%%a%%',data.PaymentAddress)+'">['+ix+']</a>';
                             }
                             ix++;
                         }
@@ -395,8 +395,8 @@ $(document).ready(function(){
                 totalamount+=json.data.budgetsprojection[bix].Alloted;
             }
         }
-        $('#globalallotedbudgetamount').text(addCommas(totalamount)+' '+dashninjacoin[dashninjatestnet]);
-        $('#globalnextsuperblockunallocated').text(addCommas(Math.round((json.data.stats.nextsuperblock.estimatedbudgetamount-totalamount)*100)/100)+' '+dashninjacoin[dashninjatestnet]);
+        $('#globalallotedbudgetamount').text(addCommas(totalamount)+' '+pacninjacoin[pacninjatestnet]);
+        $('#globalnextsuperblockunallocated').text(addCommas(Math.round((json.data.stats.nextsuperblock.estimatedbudgetamount-totalamount)*100)/100)+' '+pacninjacoin[pacninjatestnet]);
 
         // Store information for future use
         latestblock2 = json.data.stats.latestblock;
@@ -410,7 +410,7 @@ $(document).ready(function(){
         $('#budgetsprojectiontableLR').text( n + ' ' + time );
     } );
     tableBudgetsProjection = $('#budgetsprojectiondetailtable').dataTable( {
-        ajax: { url: "/api/budgetsprojection?testnet="+dashninjatestnet,
+        ajax: { url: "/api/budgetsprojection?testnet="+pacninjatestnet,
             dataSrc: 'data.budgetsprojection' },
         paging: false,
         order: [[ 0, "desc" ]],
@@ -426,7 +426,7 @@ $(document).ready(function(){
             { data: null, render: function ( data, type, row ) {
                 var outtxt = data.ID;
                 if (type != 'sort') {
-                    outtxt = '<a href="'+dashninjabudgetdetail[dashninjatestnet].replace('%%b%%',data.ID)+'">'+data.ID+'</a>';
+                    outtxt = '<a href="'+pacninjabudgetdetail[pacninjatestnet].replace('%%b%%',data.ID)+'">'+data.ID+'</a>';
                 }
                 return outtxt;
             } },
@@ -456,7 +456,7 @@ $(document).ready(function(){
                     return data.TotalPayment;
                 }
                 else {
-                    return addCommas(data.TotalPayment+' '+dashninjacoin[dashninjatestnet]);
+                    return addCommas(data.TotalPayment+' '+pacninjacoin[pacninjatestnet]);
                 }
 
             } },
@@ -465,7 +465,7 @@ $(document).ready(function(){
                     return data.MonthlyPayment;
                 }
                 else {
-                    return addCommas(data.MonthlyPayment+' '+dashninjacoin[dashninjatestnet]);
+                    return addCommas(data.MonthlyPayment+' '+pacninjacoin[pacninjatestnet]);
                 }
 
             } },
@@ -474,7 +474,7 @@ $(document).ready(function(){
                     return data.Alloted;
                 }
                 else {
-                    return addCommas(data.Alloted+' '+dashninjacoin[dashninjatestnet]);
+                    return addCommas(data.Alloted+' '+pacninjacoin[pacninjatestnet]);
                 }
 
             } },
@@ -483,7 +483,7 @@ $(document).ready(function(){
                     return data.TotalBudgetAlloted;
                 }
                 else {
-                    return addCommas(data.TotalBudgetAlloted+' '+dashninjacoin[dashninjatestnet]);
+                    return addCommas(data.TotalBudgetAlloted+' '+pacninjacoin[pacninjatestnet]);
                 }
 
             } },
@@ -493,14 +493,14 @@ $(document).ready(function(){
                     outtxt = data.PaymentAddress;
                 }
                 else {
-                    if (dashninjaaddressexplorer[dashninjatestnet].length > 0) {
+                    if (pacninjaaddressexplorer[pacninjatestnet].length > 0) {
                         var ix = 0;
-                        for ( var i=0, ien=dashninjaaddressexplorer[dashninjatestnet].length ; i<ien ; i++ ) {
+                        for ( var i=0, ien=pacninjaaddressexplorer[pacninjatestnet].length ; i<ien ; i++ ) {
                             if (ix == 0) {
-                                outtxt += '<a href="'+dashninjaaddressexplorer[dashninjatestnet][0][0].replace('%%a%%',data.PaymentAddress)+'">'+data.PaymentAddress+'</a>';
+                                outtxt += '<a href="'+pacninjaaddressexplorer[pacninjatestnet][0][0].replace('%%a%%',data.PaymentAddress)+'">'+data.PaymentAddress+'</a>';
                             }
                             else {
-                                outtxt += '<a href="'+dashninjaaddressexplorer[dashninjatestnet][i][0].replace('%%a%%',data.PaymentAddress)+'">['+ix+']</a>';
+                                outtxt += '<a href="'+pacninjaaddressexplorer[pacninjatestnet][i][0].replace('%%a%%',data.PaymentAddress)+'">['+ix+']</a>';
                             }
                             ix++;
                         }
@@ -680,7 +680,7 @@ $(document).ready(function(){
                 columns: [
                     {title: "Month"},
                     { data: null, render: function ( data, type, row ) {
-                        var outtxt = addCommas(data[1].toFixed(3))+" "+dashninjacoin[dashninjatestnet];
+                        var outtxt = addCommas(data[1].toFixed(3))+" "+pacninjacoin[pacninjatestnet];
                         return outtxt;
                     } }
                 ]
@@ -733,7 +733,7 @@ $(document).ready(function(){
 
     } );
     tableSuperBlocks = $('#superblockstable').dataTable( {
-        ajax: { url: "/api/blocks?testnet="+dashninjatestnet+"&onlysuperblocks=1",
+        ajax: { url: "/api/blocks?testnet="+pacninjatestnet+"&onlysuperblocks=1",
             dataSrc: 'data.blocks' },
         paging: false,
         order: [[ 0, "desc" ]],
@@ -751,8 +751,8 @@ $(document).ready(function(){
             { data: null, render: function ( data, type, row ) {
                 var outtxt = data.BlockId;
                 if (type != 'sort') {
-                    if (dashninjablockexplorer[dashninjatestnet].length > 0) {
-                        outtxt = '<a href="'+dashninjablockexplorer[dashninjatestnet][0][0].replace('%%b%%',data.BlockHash)+'">'+data.BlockId+'</a>';
+                    if (pacninjablockexplorer[pacninjatestnet].length > 0) {
+                        outtxt = '<a href="'+pacninjablockexplorer[pacninjatestnet][0][0].replace('%%b%%',data.BlockHash)+'">'+data.BlockId+'</a>';
                     }
                 }
                 return outtxt;
@@ -769,7 +769,7 @@ $(document).ready(function(){
                 if (type == "sort") {
                     return data.SuperBlockBudgetName;
                 } else {
-                    return '<a href="' + dashninjabudgetdetail[dashninjatestnet].replace('%%b%%',encodeURIComponent(data.SuperBlockBudgetName)) + '">' + data.SuperBlockBudgetName + '</a>';
+                    return '<a href="' + pacninjabudgetdetail[pacninjatestnet].replace('%%b%%',encodeURIComponent(data.SuperBlockBudgetName)) + '">' + data.SuperBlockBudgetName + '</a>';
                 }
               }
             },
@@ -777,7 +777,7 @@ $(document).ready(function(){
                 if (type == "sort") {
                     return data.BlockMNValue;
                 } else {
-                    return addCommas(data.BlockMNValue.toFixed(3))+" "+dashninjacoin[dashninjatestnet];
+                    return addCommas(data.BlockMNValue.toFixed(3))+" "+pacninjacoin[pacninjatestnet];
                 }
             }
             }
@@ -793,7 +793,7 @@ $(document).ready(function(){
         $('#superblocksexpectedtableLR').text( date.toLocaleString() );
     } );
     tableSuperBlocksExpected = $('#superblocksexpectedtable').dataTable( {
-        ajax: { url: "/api/budgetsexpected?testnet="+dashninjatestnet,
+        ajax: { url: "/api/budgetsexpected?testnet="+pacninjatestnet,
             dataSrc: 'data.budgetsexpected' },
         paging: false,
         order: [[ 0, "desc" ]],
@@ -806,7 +806,7 @@ $(document).ready(function(){
                 if (type == "sort") {
                     return data.BlockProposal;
                 } else {
-                    return '<a href="' + dashninjabudgetdetail[dashninjatestnet].replace('%%b%%',encodeURIComponent(data.BlockProposal)) + '">' + data.BlockProposal + '</a>';
+                    return '<a href="' + pacninjabudgetdetail[pacninjatestnet].replace('%%b%%',encodeURIComponent(data.BlockProposal)) + '">' + data.BlockProposal + '</a>';
                 }
             }
             },
@@ -814,7 +814,7 @@ $(document).ready(function(){
                 if (type == "sort") {
                     return data.MonthlyPayment;
                 } else {
-                    return addCommas(data.MonthlyPayment.toFixed(3))+" "+dashninjacoin[dashninjatestnet];
+                    return addCommas(data.MonthlyPayment.toFixed(3))+" "+pacninjacoin[pacninjatestnet];
                 }
             }
             }

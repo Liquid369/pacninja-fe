@@ -1,6 +1,6 @@
 /*
  This file is part of Dash Ninja.
- https://github.com/elbereth/dashninja-fe
+ https://github.com/akshaynexus/pacninja-fe
 
  Dash Ninja is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -17,10 +17,10 @@
 
  */
 
-// Dash Ninja Front-End (dashninja-fe) - Proposal Details
+// Dash Ninja Front-End (pacninja-fe) - Proposal Details
 // By elberethzone / https://www.dash.org/forum/members/elbereth.175/
 
-var dashninjaversion = '1.5.2';
+var pacninjaversion = '1.5.2';
 var tableVotes = null;
 var tableSuperBlocks = null;
 var dashoutputregexp = /^[a-z0-9]{64}$/;
@@ -34,71 +34,71 @@ var currentstats = null;
 
 $.fn.dataTable.ext.errMode = 'throw';
 
-var dashninjatestnet = 0;
+var pacninjatestnet = 0;
 
-if (typeof dashninjatestnethost !== 'undefined') {
-    if (window.location.hostname == dashninjatestnethost) {
-        dashninjatestnet = 1;
+if (typeof pacninjatestnethost !== 'undefined') {
+    if (window.location.hostname == pacninjatestnethost) {
+        pacninjatestnet = 1;
     }
 }
-if (typeof dashninjatestnettor !== 'undefined') {
-    if (window.location.hostname == dashninjatestnettor) {
-        dashninjatestnet = 1;
+if (typeof pacninjatestnettor !== 'undefined') {
+    if (window.location.hostname == pacninjatestnettor) {
+        pacninjatestnet = 1;
     }
 }
-if (typeof dashninjatestneti2p !== 'undefined') {
-    if (window.location.hostname == dashninjatestneti2p) {
-        dashninjatestnet = 1;
+if (typeof pacninjatestneti2p !== 'undefined') {
+    if (window.location.hostname == pacninjatestneti2p) {
+        pacninjatestnet = 1;
     }
 }
 
-if (typeof dashninjacoin === 'undefined') {
-  var dashninjacoin = ['',''];
+if (typeof pacninjacoin === 'undefined') {
+  var pacninjacoin = ['',''];
 }
-if (typeof dashninjaaddressexplorer === 'undefined') {
-  var dashninjaaddressexplorer = [[],[]];
+if (typeof pacninjaaddressexplorer === 'undefined') {
+  var pacninjaaddressexplorer = [[],[]];
 }
-if (typeof dashninjaaddressexplorer[0] === 'undefined') {
-  dashninjaaddressexplorer[0] = [];
+if (typeof pacninjaaddressexplorer[0] === 'undefined') {
+  pacninjaaddressexplorer[0] = [];
 }
-if (typeof dashninjaaddressexplorer[1] === 'undefined') {
-  dashninjaaddressexplorer[1] = [];
-}
-
-if (typeof dashninjamndetailvin === 'undefined') {
-    var dashninjamndetailvin = [[],[]];
-}
-if (typeof dashninjamndetailvin[0] === 'undefined') {
-    dashninjamndetailvin[0] = [];
-}
-if (typeof dashninjamndetailvin[1] === 'undefined') {
-    dashninjamndetailvin[1] = [];
+if (typeof pacninjaaddressexplorer[1] === 'undefined') {
+  pacninjaaddressexplorer[1] = [];
 }
 
-if (typeof dashninjaaddressexplorer === 'undefined') {
-    var dashninjaaddressexplorer = [[],[]];
+if (typeof pacninjamndetailvin === 'undefined') {
+    var pacninjamndetailvin = [[],[]];
 }
-if (typeof dashninjaaddressexplorer[0] === 'undefined') {
-    dashninjaaddressexplorer[0] = [];
+if (typeof pacninjamndetailvin[0] === 'undefined') {
+    pacninjamndetailvin[0] = [];
 }
-if (typeof dashninjaaddressexplorer[1] === 'undefined') {
-    dashninjaaddressexplorer[1] = [];
+if (typeof pacninjamndetailvin[1] === 'undefined') {
+    pacninjamndetailvin[1] = [];
 }
 
-if (typeof dashninjatxexplorer === 'undefined') {
-    var dashninjatxexplorer = [[],[]];
+if (typeof pacninjaaddressexplorer === 'undefined') {
+    var pacninjaaddressexplorer = [[],[]];
 }
-if (typeof dashninjatxexplorer[0] === 'undefined') {
-    dashninjatxexplorer[0] = [];
+if (typeof pacninjaaddressexplorer[0] === 'undefined') {
+    pacninjaaddressexplorer[0] = [];
 }
-if (typeof dashninjatxexplorer[1] === 'undefined') {
-    dashninjatxexplorer[1] = [];
+if (typeof pacninjaaddressexplorer[1] === 'undefined') {
+    pacninjaaddressexplorer[1] = [];
+}
+
+if (typeof pacninjatxexplorer === 'undefined') {
+    var pacninjatxexplorer = [[],[]];
+}
+if (typeof pacninjatxexplorer[0] === 'undefined') {
+    pacninjatxexplorer[0] = [];
+}
+if (typeof pacninjatxexplorer[1] === 'undefined') {
+    pacninjatxexplorer[1] = [];
 }
 
 function budgetdetailsRefresh(useHash){
   console.log("DEBUG: budgetdetailsRefresh starting");
   $('#budgetinfoLR').html( '<i class="fa fa-spinner fa-pulse"></i> Refreshing <i class="fa fa-spinner fa-pulse"></i>' );
-  var query = '/api/governanceproposals?testnet='+dashninjatestnet;
+  var query = '/api/governanceproposals?testnet='+pacninjatestnet;
   if (useHash) {
     query += '&proposalshashes=["'+encodeURIComponent(proposalhash)+'"]';
   }
@@ -154,14 +154,14 @@ function budgetdetailsRefresh(useHash){
        proposalname = data.data.governanceproposals[0].Name;
        proposalhash = data.data.governanceproposals[0].Hash;
        var outtxt = "";
-       if (dashninjatxexplorer[dashninjatestnet].length > 0) {
+       if (pacninjatxexplorer[pacninjatestnet].length > 0) {
            var ix = 0;
-           for ( var i=0, ien=dashninjatxexplorer[dashninjatestnet].length ; i<ien ; i++ ) {
+           for ( var i=0, ien=pacninjatxexplorer[pacninjatestnet].length ; i<ien ; i++ ) {
                if (ix == 0) {
-                   outtxt += '<a href="'+dashninjatxexplorer[dashninjatestnet][0][0].replace('%%a%%',data.data.governanceproposals[0].CollateralHash)+'">'+data.data.governanceproposals[0].CollateralHash+'</a>';
+                   outtxt += '<a href="'+pacninjatxexplorer[pacninjatestnet][0][0].replace('%%a%%',data.data.governanceproposals[0].CollateralHash)+'">'+data.data.governanceproposals[0].CollateralHash+'</a>';
                }
                else {
-                   outtxt += '<a href="'+dashninjatxexplorer[dashninjatestnet][i][0].replace('%%a%%',data.data.governanceproposals[0].CollateralHash)+'">['+ix+']</a>';
+                   outtxt += '<a href="'+pacninjatxexplorer[pacninjatestnet][i][0].replace('%%a%%',data.data.governanceproposals[0].CollateralHash)+'">['+ix+']</a>';
                }
                ix++;
            }
@@ -191,8 +191,8 @@ function budgetdetailsRefresh(useHash){
                monthsleft = 1;
            }
        }
-       $('#budgetmonthlyamount').html( addCommas( data.data.governanceproposals[0].PaymentAmount.toFixed(3) )+' '+dashninjacoin[dashninjatestnet]);
-       $('#budgettotalamount').html( addCommas( (data.data.governanceproposals[0].PaymentAmount*monthsleft).toFixed(3) )+' '+dashninjacoin[dashninjatestnet]);
+       $('#budgetmonthlyamount').html( addCommas( data.data.governanceproposals[0].PaymentAmount.toFixed(3) )+' '+pacninjacoin[pacninjatestnet]);
+       $('#budgettotalamount').html( addCommas( (data.data.governanceproposals[0].PaymentAmount*monthsleft).toFixed(3) )+' '+pacninjacoin[pacninjatestnet]);
        $('#budgettotalpayments').html( '<i class="fa fa-spinner fa-pulse"></i>' );
        $('#budgetremainingpayments').text( monthsleft );
        $('#budgetyes').text( data.data.governanceproposals[0].Yes );
@@ -200,14 +200,14 @@ function budgetdetailsRefresh(useHash){
        $('#budgetabstain').text( data.data.governanceproposals[0].Abstain );
 
        outtxt = "";
-           if (dashninjaaddressexplorer[dashninjatestnet].length > 0) {
+           if (pacninjaaddressexplorer[pacninjatestnet].length > 0) {
                var ix = 0;
-               for ( var i=0, ien=dashninjaaddressexplorer[dashninjatestnet].length ; i<ien ; i++ ) {
+               for ( var i=0, ien=pacninjaaddressexplorer[pacninjatestnet].length ; i<ien ; i++ ) {
                    if (ix == 0) {
-                       outtxt += '<a href="'+dashninjaaddressexplorer[dashninjatestnet][0][0].replace('%%a%%',data.data.governanceproposals[0].PaymentAddress)+'">'+data.data.governanceproposals[0].PaymentAddress+'</a>';
+                       outtxt += '<a href="'+pacninjaaddressexplorer[pacninjatestnet][0][0].replace('%%a%%',data.data.governanceproposals[0].PaymentAddress)+'">'+data.data.governanceproposals[0].PaymentAddress+'</a>';
                    }
                    else {
-                       outtxt += '<a href="'+dashninjaaddressexplorer[dashninjatestnet][i][0].replace('%%a%%',data.data.governanceproposals[0].PaymentAddress)+'">['+ix+']</a>';
+                       outtxt += '<a href="'+pacninjaaddressexplorer[pacninjatestnet][i][0].replace('%%a%%',data.data.governanceproposals[0].PaymentAddress)+'">['+ix+']</a>';
                    }
                    ix++;
                }
@@ -285,7 +285,7 @@ function budgetdetailsRefresh(useHash){
        else {
            tableVotes = $('#votestable').dataTable({
                ajax: {
-                   url: '/api/governanceproposals/votes?testnet=' + dashninjatestnet + '&proposalhash=' + encodeURIComponent(currentbudget.Hash),
+                   url: '/api/governanceproposals/votes?testnet=' + pacninjatestnet + '&proposalhash=' + encodeURIComponent(currentbudget.Hash),
                    dataSrc: 'data.governanceproposalvotes',
                    cache: true
                },
@@ -308,23 +308,23 @@ function budgetdetailsRefresh(useHash){
                        data: null, render: function (data, type, row) {
                        var outtxt = '';
                        if (type != 'sort') {
-                           if ((dashninjamndetailvin[dashninjatestnet].length > 0) || (dashninjatxexplorer[dashninjatestnet].length > 0)) {
+                           if ((pacninjamndetailvin[pacninjatestnet].length > 0) || (pacninjatxexplorer[pacninjatestnet].length > 0)) {
                                var ix = 0;
-                               for (var i = 0, ien = dashninjamndetailvin[dashninjatestnet].length; i < ien; i++) {
+                               for (var i = 0, ien = pacninjamndetailvin[pacninjatestnet].length; i < ien; i++) {
                                    if (ix == 0) {
-                                       outtxt += '<a href="' + dashninjamndetailvin[dashninjatestnet][0][0].replace('%%a%%', data.MasternodeOutputHash + '-' + data.MasternodeOutputIndex) + '">' + data.MasternodeOutputHash + '-' + data.MasternodeOutputIndex + '</a>';
+                                       outtxt += '<a href="' + pacninjamndetailvin[pacninjatestnet][0][0].replace('%%a%%', data.MasternodeOutputHash + '-' + data.MasternodeOutputIndex) + '">' + data.MasternodeOutputHash + '-' + data.MasternodeOutputIndex + '</a>';
                                    }
                                    else {
-                                       outtxt += '<a href="' + dashninjamndetailvin[dashninjatestnet][i][0].replace('%%a%%', data.MasternodeOutputHash + '-' + data.MasternodeOutputIndex) + '">[' + ix + ']</a>';
+                                       outtxt += '<a href="' + pacninjamndetailvin[pacninjatestnet][i][0].replace('%%a%%', data.MasternodeOutputHash + '-' + data.MasternodeOutputIndex) + '">[' + ix + ']</a>';
                                    }
                                    ix++;
                                }
-                               for (var i = 0, ien = dashninjatxexplorer[dashninjatestnet].length; i < ien; i++) {
+                               for (var i = 0, ien = pacninjatxexplorer[pacninjatestnet].length; i < ien; i++) {
                                    if (ix == 0) {
-                                       outtxt += '<a href="' + dashninjatxexplorer[dashninjatestnet][0][0].replace('%%a%%', data.MasternodeOutputHash) + '">' + data.MasternodeOutputHash + '-' + data.MasternodeOutputIndex + '</a>';
+                                       outtxt += '<a href="' + pacninjatxexplorer[pacninjatestnet][0][0].replace('%%a%%', data.MasternodeOutputHash) + '">' + data.MasternodeOutputHash + '-' + data.MasternodeOutputIndex + '</a>';
                                    }
                                    else {
-                                       outtxt += '<a href="' + dashninjatxexplorer[dashninjatestnet][i][0].replace('%%a%%', data.MasternodeOutputHash) + '">[' + ix + ']</a>';
+                                       outtxt += '<a href="' + pacninjatxexplorer[pacninjatestnet][i][0].replace('%%a%%', data.MasternodeOutputHash) + '">[' + ix + ']</a>';
                                    }
                                    ix++;
                                }
@@ -367,7 +367,7 @@ function budgetdetailsRefresh(useHash){
        else {
            tableSuperBlocks = $('#superblockstable').dataTable({
                ajax: {
-                   url: '/api/blocks/superblocks?testnet=' + dashninjatestnet + '&proposalshash=["' + encodeURIComponent(currentbudget.Hash) + '"]',
+                   url: '/api/blocks/superblocks?testnet=' + pacninjatestnet + '&proposalshash=["' + encodeURIComponent(currentbudget.Hash) + '"]',
                    dataSrc: 'data.superblocks',
                    cache: true
                },
@@ -387,8 +387,8 @@ function budgetdetailsRefresh(useHash){
                    { data: null, render: function ( data, type, row ) {
                        var outtxt = data.BlockId;
                        if (type != 'sort') {
-                           if (dashninjablockexplorer[dashninjatestnet].length > 0) {
-                               outtxt = '<a href="'+dashninjablockexplorer[dashninjatestnet][0][0].replace('%%b%%',data.BlockHash)+'">'+data.BlockId+'</a>';
+                           if (pacninjablockexplorer[pacninjatestnet].length > 0) {
+                               outtxt = '<a href="'+pacninjablockexplorer[pacninjatestnet][0][0].replace('%%b%%',data.BlockHash)+'">'+data.BlockId+'</a>';
                            }
                        }
                        return outtxt;
@@ -404,7 +404,7 @@ function budgetdetailsRefresh(useHash){
                        if (type == "sort") {
                            return data.SuperBlockPaymentAmount;
                        } else {
-                           return addCommas(data.SuperBlockPaymentAmount.toFixed(3))+" "+dashninjacoin[dashninjatestnet];
+                           return addCommas(data.SuperBlockPaymentAmount.toFixed(3))+" "+pacninjacoin[pacninjatestnet];
                        }
                    }
                    }
@@ -428,7 +428,7 @@ function budgetdetailsRefresh(useHash){
 
 function refreshBudgetProjection(useHash) {
     console.log("DEBUG: refreshBudgetProjection starting");
-    var query = '/api/budgetsprojection?testnet=' + dashninjatestnet+'&onlyvalid=1';
+    var query = '/api/budgetsprojection?testnet=' + pacninjatestnet+'&onlyvalid=1';
     query += '&budgethashes=["' + encodeURIComponent(currentbudget.Hash) + '"]';
     console.log("DEBUG: REST query=" + query);
     $.getJSON(query, function (data) {
@@ -436,7 +436,7 @@ function refreshBudgetProjection(useHash) {
 
         if ((data.hasOwnProperty("data")) && (data.data.hasOwnProperty("budgetsprojection")) && (Array.isArray(data.data.budgetsprojection)) && (data.data.budgetsprojection.length == 1) &&
             ((currenttimestamp() - data.data.budgetsprojection[0].LastReported) < 3600)) {
-            $('#budgetstatus').html("Valid and expected next super block (" + addCommas(data.data.budgetsprojection[0].Alloted.toFixed(3)) + " " + dashninjacoin[dashninjatestnet] + ").");
+            $('#budgetstatus').html("Valid and expected next super block (" + addCommas(data.data.budgetsprojection[0].Alloted.toFixed(3)) + " " + pacninjacoin[pacninjatestnet] + ").");
         }
         else {
             $('#budgetstatus').html("Valid");
@@ -525,11 +525,11 @@ function refreshFiatValues() {
 
 $(document).ready(function(){
 
-  $('#dashninjajsversion').text( dashninjaversion ).addClass("label-info").removeClass("label-danger");
+  $('#pacninjajsversion').text( pacninjaversion ).addClass("label-info").removeClass("label-danger");
 
-  if (dashninjatestnet == 1) {
+  if (pacninjatestnet == 1) {
       $('#testnetalert').show();
-      $('a[name=menuitemexplorer]').attr("href", "https://"+dashninjatestnetexplorer);
+      $('a[name=menuitemexplorer]').attr("href", "https://"+pacninjatestnetexplorer);
   }
 
   proposalname = getParameter("proposalname");
@@ -585,7 +585,7 @@ $(document).ready(function(){
             }
         }
         $('#budgettotalpayments').text( numblocks );
-        $('#budgettotalpaymentsdash').text( totalamount.toFixed(3)+' '+dashninjacoin[dashninjatestnet] );
+        $('#budgettotalpaymentsdash').text( totalamount.toFixed(3)+' '+pacninjacoin[pacninjatestnet] );
 
         var nextsuperblockdatetimestamp = currentstats.latestblock.BlockTime+(((currentstats.nextsuperblock.blockheight-currentstats.latestblock.BlockId)/553)*86400);
         var monthsleft = Math.round (( currentbudget.EpochEnd - Math.max(currentbudget.EpochStart,nextsuperblockdatetimestamp)) / 2592000);
@@ -650,8 +650,8 @@ $(document).ready(function(){
             outtxt = "Never";
         }
         else {
-            if (dashninjablockexplorer[dashninjatestnet].length > 0) {
-                outtxt = 'Block <a href="' + dashninjablockexplorer[dashninjatestnet][0][0].replace('%%b%%', latestblock.BlockHash) + '">' + latestblock.BlockId + '</a>';
+            if (pacninjablockexplorer[pacninjatestnet].length > 0) {
+                outtxt = 'Block <a href="' + pacninjablockexplorer[pacninjatestnet][0][0].replace('%%b%%', latestblock.BlockHash) + '">' + latestblock.BlockId + '</a>';
             }
             var tmpDate = new Date(latestblock.BlockTime * 1000);
             outtxt += " on " + tmpDate.toLocaleString() + " (" + timeSince((currenttimestamp() - latestblock.BlockTime)) + ")";

@@ -1,6 +1,6 @@
 /*
  This file is part of Dash Ninja.
- https://github.com/elbereth/dashninja-fe
+ https://github.com/akshaynexus/pacninja-fe
 
  Dash Ninja is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -17,10 +17,10 @@
 
  */
 
-// Dash Ninja Front-End (dashninja-fe) - Masternode Detail
+// Dash Ninja Front-End (pacninja-fe) - Masternode Detail
 // By elberethzone / https://dashtalk.org/members/elbereth.175/
 
-var dashninjaversion = '3.3.0';
+var pacninjaversion = '3.3.0';
 var tablePayments = null;
 var tableExStatus = null;
 var dataProtocolDesc = [];
@@ -33,35 +33,35 @@ var mnvin = '';
 
 $.fn.dataTable.ext.errMode = 'throw';
 
-var dashninjatestnet = 0;
+var pacninjatestnet = 0;
 
-if (typeof dashninjatestnethost !== 'undefined') {
-    if (window.location.hostname == dashninjatestnethost) {
-        dashninjatestnet = 1;
+if (typeof pacninjatestnethost !== 'undefined') {
+    if (window.location.hostname == pacninjatestnethost) {
+        pacninjatestnet = 1;
     }
 }
-if (typeof dashninjatestnettor !== 'undefined') {
-    if (window.location.hostname == dashninjatestnettor) {
-        dashninjatestnet = 1;
+if (typeof pacninjatestnettor !== 'undefined') {
+    if (window.location.hostname == pacninjatestnettor) {
+        pacninjatestnet = 1;
     }
 }
-if (typeof dashninjatestneti2p !== 'undefined') {
-    if (window.location.hostname == dashninjatestneti2p) {
-        dashninjatestnet = 1;
+if (typeof pacninjatestneti2p !== 'undefined') {
+    if (window.location.hostname == pacninjatestneti2p) {
+        pacninjatestnet = 1;
     }
 }
 
-if (typeof dashninjacoin === 'undefined') {
-  var dashninjacoin = ['',''];
+if (typeof pacninjacoin === 'undefined') {
+  var pacninjacoin = ['',''];
 }
-if (typeof dashninjaaddressexplorer === 'undefined') {
-  var dashninjaaddressexplorer = [[],[]];
+if (typeof pacninjaaddressexplorer === 'undefined') {
+  var pacninjaaddressexplorer = [[],[]];
 }
-if (typeof dashninjaaddressexplorer[0] === 'undefined') {
-  dashninjaaddressexplorer[0] = [];
+if (typeof pacninjaaddressexplorer[0] === 'undefined') {
+  pacninjaaddressexplorer[0] = [];
 }
-if (typeof dashninjaaddressexplorer[1] === 'undefined') {
-  dashninjaaddressexplorer[1] = [];
+if (typeof pacninjaaddressexplorer[1] === 'undefined') {
+  pacninjaaddressexplorer[1] = [];
 }
 
 function tablePaymentsRefresh(){
@@ -73,7 +73,7 @@ function tablePaymentsRefresh(){
 function mndetailsRefresh(useVin){
   console.log("DEBUG: mndetailsRefresh starting");
   $('#mninfosLR').html( '<i class="fa fa-spinner fa-pulse"></i> Refreshing <i class="fa fa-spinner fa-pulse"></i>' );
-  var query = '/api/masternodes?balance=1&portcheck=1&lastpaid=1&exstatus=1&testnet='+dashninjatestnet;
+  var query = '/api/masternodes?balance=1&portcheck=1&lastpaid=1&exstatus=1&testnet='+pacninjatestnet;
   if (useVin) {
     query += '&vins=["'+mnvin+'"]';
   }
@@ -178,7 +178,7 @@ function mndetailsRefresh(useVin){
     } else {
       cls = "success";
     }
-    $('#mnbalance').text ( addCommas( num.toFixed(3) )+' '+dashninjacoin[dashninjatestnet]).removeClass("danger").removeClass("success").addClass(cls);
+    $('#mnbalance').text ( addCommas( num.toFixed(3) )+' '+pacninjacoin[pacninjatestnet]).removeClass("danger").removeClass("success").addClass(cls);
 
     // Last Paid data
     var outtxt = "";
@@ -196,8 +196,8 @@ function mndetailsRefresh(useVin){
     if (data.data[0].LastPaidFromBlocks !== false) {
       var tmpDate = new Date(data.data[0].LastPaidFromBlocks.MNLastPaidTime*1000);
       outtxt = tmpDate.toLocaleString()+" ("+deltaTimeStampHRlong(parseInt(data.data[0].LastPaidFromBlocks.MNLastPaidTime),currenttimestamp())+" ago) on block ";
-      if (dashninjaqueryexplorer[dashninjatestnet].length > 0) {
-        outtxt += '<a href="'+dashninjaqueryexplorer[dashninjatestnet][0][0].replace('%%q%%',data.data[0].LastPaidFromBlocks.MNLastPaidBlock)+'">'+data.data[0].LastPaidFromBlocks.MNLastPaidBlock+'</a>';
+      if (pacninjaqueryexplorer[pacninjatestnet].length > 0) {
+        outtxt += '<a href="'+pacninjaqueryexplorer[pacninjatestnet][0][0].replace('%%q%%',data.data[0].LastPaidFromBlocks.MNLastPaidBlock)+'">'+data.data[0].LastPaidFromBlocks.MNLastPaidBlock+'</a>';
       }
       else {
         outtxt += data.data[0].LastPaidFromBlocks.MNLastPaidBlock;
@@ -268,7 +268,7 @@ function mndetailsRefresh(useVin){
       tablePayments = $('#paymentstable').dataTable( {
         responsive: true,
         searching: false,
-        ajax: { url: '/api/blocks?testnet='+dashninjatestnet+'&pubkeys=["'+data.data[0].MasternodePubkey+'"]&interval=P1M',
+        ajax: { url: '/api/blocks?testnet='+pacninjatestnet+'&pubkeys=["'+data.data[0].MasternodePubkey+'"]&interval=P1M',
                 dataSrc: 'data.blocks',
                 cache: true },
         paging: false,
@@ -294,8 +294,8 @@ function mndetailsRefresh(useVin){
             { data: null, render: function ( data, type, row ) {
                var outtxt = data.BlockId;
                if (type != 'sort') {
-                 if (dashninjablockexplorer[dashninjatestnet].length > 0) {
-                   outtxt = '<a href="'+dashninjablockexplorer[dashninjatestnet][0][0].replace('%%b%%',data.BlockHash)+'">'+data.BlockId+'</a>';
+                 if (pacninjablockexplorer[pacninjatestnet].length > 0) {
+                   outtxt = '<a href="'+pacninjablockexplorer[pacninjatestnet][0][0].replace('%%b%%',data.BlockHash)+'">'+data.BlockId+'</a>';
                  }
                }
                return outtxt;
@@ -317,7 +317,7 @@ function mndetailsRefresh(useVin){
                } else if (type == "sort") {
                  return data.BlockMNPayeeExpected;
                } else {
-                 return '<a href="'+dashninjamasternodemonitoring[dashninjatestnet].replace('%%p%%',data.BlockMNPayeeExpected)+'">'+data.BlockMNPayeeExpected+'</a>';;
+                 return '<a href="'+pacninjamasternodemonitoring[pacninjatestnet].replace('%%p%%',data.BlockMNPayeeExpected)+'">'+data.BlockMNPayeeExpected+'</a>';;
                }
             } },
             { data: null, render: function ( data, type, row ) {
@@ -326,7 +326,7 @@ function mndetailsRefresh(useVin){
                } else if (type == "sort") {
                  return data.BlockMNPayee;
                } else {
-                 return '<a href="'+dashninjamasternodemonitoring[dashninjatestnet].replace('%%p%%',data.BlockMNPayee)+'">'+data.BlockMNPayee+'</a>';;
+                 return '<a href="'+pacninjamasternodemonitoring[pacninjatestnet].replace('%%p%%',data.BlockMNPayee)+'">'+data.BlockMNPayee+'</a>';;
                }
             } }
         ],
@@ -423,12 +423,12 @@ function mndetailsRefresh(useVin){
 
 $(document).ready(function(){
 
-  $('#dashninjajsversion').text( dashninjaversion ).addClass("label-info").removeClass("label-danger");
+  $('#pacninjajsversion').text( pacninjaversion ).addClass("label-info").removeClass("label-danger");
 
-  if (dashninjatestnet == 1) {
+  if (pacninjatestnet == 1) {
     $('#testnetalert').show();
     $('#testnettitle').show();
-    $('a[name=menuitemexplorer]').attr("href", "https://"+dashninjatestnetexplorer);
+    $('a[name=menuitemexplorer]').attr("href", "https://"+pacninjatestnetexplorer);
   }
 
   mnpubkey = getParameter("mnpubkey");
@@ -444,8 +444,8 @@ $(document).ready(function(){
   }
   else {
     if ((mnpubkey != "") && (mnvin == "")) {
-      if (((dashninjatestnet == 0) && (!dashmainkeyregexp.test(mnpubkey)))
-        || ((dashninjatestnet == 1) && (!dashtestkeyregexp.test(mnpubkey)))) {
+      if (((pacninjatestnet == 0) && (!dashmainkeyregexp.test(mnpubkey)))
+        || ((pacninjatestnet == 1) && (!dashtestkeyregexp.test(mnpubkey)))) {
         mnpubkey = 'Invalid';
         $('#mnpubkey').text(mnpubkey);
       }
@@ -485,7 +485,7 @@ $(document).ready(function(){
           }
         }
         var num = Math.round( totpaid * 1000 ) / 1000;
-        $('#mntotalpaid').text ( addCommas( num.toFixed(3) )+' '+dashninjacoin[dashninjatestnet]+' ('+numpaid+' times / '+missed+' missed / '+hijacked+' hijacked)');
+        $('#mntotalpaid').text ( addCommas( num.toFixed(3) )+' '+pacninjacoin[pacninjatestnet]+' ('+numpaid+' times / '+missed+' missed / '+hijacked+' hijacked)');
 
         // Change the last refresh date
         var date = new Date();
