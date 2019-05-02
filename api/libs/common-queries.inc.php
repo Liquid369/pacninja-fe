@@ -19,7 +19,7 @@ along with Dash Ninja.  If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-define("DASHNINJA_BEV","2.0");
+define("PACNINJA_BEV","2.0");
 
 // Function to retrieve the masternode list
 function dmn_masternodes_get($mysqli, $testnet = 0, $protocol = 0, $mnpubkeys = array(), $mnips = array(), $withlastpaid = false) {

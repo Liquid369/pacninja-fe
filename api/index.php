@@ -52,7 +52,7 @@ $app->get('/api/version', function() {
   //Change the HTTP status
   $response->setStatusCode(200, "OK");
   $response->setJsonContent(array('status' => 'OK', 'data' => array("version" => array(
-      "api" => DASHNINJA_BEV,
+      "api" => PACNINJA_BEV,
       "phalcon" => Phalcon\Version::get(),
       "php" => phpversion()
   ))));
@@ -494,7 +494,7 @@ $app->get('/api/blocks', function() use ($app,&$mysqli) {
             'api' => array(
                 'version' => $apiversion,
                 'compat' => $apiversioncompat,
-                'bev' => 'bk='.DASHNINJA_BEV.".".$apiversion
+                'bev' => 'bk='.PACNINJA_BEV.".".$apiversion
             )
                                                                          );
         //Change the HTTP status
@@ -762,7 +762,7 @@ $app->get('/api/blocks/superblocks', function() use ($app,&$mysqli) {
                     'api' => array(
                         'version' => $apiversion,
                         'compat' => $apiversioncompat,
-                        'bev' => 'sb='.DASHNINJA_BEV.".".$apiversion
+                        'bev' => 'sb='.PACNINJA_BEV.".".$apiversion
                     )
                 );
                 //Change the HTTP status
@@ -993,7 +993,7 @@ $app->get('/api/budgets', function() use ($app,&$mysqli) {
             'api' => array(
                 'version' => $apiversion,
                 'compat' => $apiversioncompat,
-                'bev' => 'bu='.DASHNINJA_BEV.".".$apiversion
+                'bev' => 'bu='.PACNINJA_BEV.".".$apiversion
             )
                      );
 
@@ -1112,7 +1112,7 @@ $app->get('/api/budgetsexpected', function() use ($app,&$mysqli) {
               'api' => array(
                   'version' => $apiversion,
                   'compat' => $apiversioncompat,
-                  'bev' => 'be=' . DASHNINJA_BEV . "." . $apiversion
+                  'bev' => 'be=' . PACNINJA_BEV . "." . $apiversion
               )
           );
 
@@ -1265,7 +1265,7 @@ $app->get('/api/budgets/votes', function() use ($app,&$mysqli) {
             'api' => array(
                 'version' => $apiversion,
                 'compat' => $apiversioncompat,
-                'bev' => 'bv='.DASHNINJA_BEV.".".$apiversion
+                'bev' => 'bv='.PACNINJA_BEV.".".$apiversion
             )
         );
 
@@ -1501,7 +1501,7 @@ $app->get('/api/budgetsprojection', function() use ($app,&$mysqli) {
             'api' => array(
                 'version' => $apiversion,
                 'compat' => $apiversioncompat,
-                'bev' => 'bp='.DASHNINJA_BEV.".".$apiversion
+                'bev' => 'bp='.PACNINJA_BEV.".".$apiversion
             )
         );
 
@@ -1767,7 +1767,7 @@ $app->get('/api/governanceproposals', function() use ($app,&$mysqli) {
                     'api' => array(
                         'version' => $apiversion,
                         'compat' => $apiversioncompat,
-                        'bev' => 'gp='.DASHNINJA_BEV.".".$apiversion
+                        'bev' => 'gp='.PACNINJA_BEV.".".$apiversion
                     )
                 );
 
@@ -1897,7 +1897,7 @@ $app->get('/api/governanceproposals/votelimit', function() use ($app,&$mysqli) {
             'api' => array(
                 'version' => $apiversion,
                 'compat' => $apiversioncompat,
-                'bev' => 'gpvl=' . DASHNINJA_BEV . "." . $apiversion
+                'bev' => 'gpvl=' . PACNINJA_BEV . "." . $apiversion
             )
         );
 
@@ -2042,7 +2042,7 @@ $app->get('/api/governanceproposals/votes', function() use ($app,&$mysqli) {
                     'api' => array(
                         'version' => $apiversion,
                         'compat' => $apiversioncompat,
-                        'bev' => 'gpv='.DASHNINJA_BEV.".".$apiversion
+                        'bev' => 'gpv='.PACNINJA_BEV.".".$apiversion
                     )
                 );
 
@@ -2206,7 +2206,7 @@ $app->get('/api/governancetriggers', function() use ($app,&$mysqli) {
                     'api' => array(
                         'version' => $apiversion,
                         'compat' => $apiversioncompat,
-                        'bev' => 'gt='.DASHNINJA_BEV.".".$apiversion
+                        'bev' => 'gt='.PACNINJA_BEV.".".$apiversion
                     )
                 );
 
@@ -3165,7 +3165,7 @@ $app->get('/api/protx', function() use ($app,&$mysqli) {
                     'fromcache' => true),
                 'api' => array('version' => 1,
                     'compat' => 1,
-                    'bev' => 'protx='.DASHNINJA_BEV.'.0')
+                    'bev' => 'protx='.PACNINJA_BEV.'.0')
             )));
 
         }
@@ -3236,7 +3236,7 @@ $app->get('/api/tablevars', function() use ($app,&$mysqli) {
             'api' => array(
                 'version' => $apiversion,
                 'compat' => $apiversioncompat,
-                'bev' => 'tv='.DASHNINJA_BEV.".".$apiversion
+                'bev' => 'tv='.PACNINJA_BEV.".".$apiversion
             )
         );
 

@@ -19,7 +19,7 @@
 
  */
 
-define("DASHNINJA_CRONVERSION","3");
+define("PACNINJA_CRONVERSION","3");
 
 // Load configuration and connect to DB
 require_once('libs/db.inc.php');
@@ -244,7 +244,7 @@ function generate_masternodeslistfull_json_files($mysqli, $testnet = 0) {
                 'fromcache' => true),
             'api' => array('version' => 4,
                 'compat' => 3,
-                'bev' => 'mnfl='.DASHNINJA_BEV.'.'.DASHNINJA_CRONVERSION)
+                'bev' => 'mnfl='.PACNINJA_BEV.'.'.PACNINJA_CRONVERSION)
         ));
 
     save_json("masternodeslistfull",$data,DMN_CRON_MNFL_SEMAPHORE,$testnet);
@@ -320,7 +320,7 @@ function generate_protxfull_json_files($mysqli, $testnet = 0) {
                 'fromcache' => true),
             'api' => array('version' => 1,
                 'compat' => 1,
-                'bev' => 'protx='.DASHNINJA_BEV.'.'.DASHNINJA_CRONVERSION)
+                'bev' => 'protx='.PACNINJA_BEV.'.'.PACNINJA_CRONVERSION)
         ));
 
     save_json("protxfull",$data,DMN_CRON_PROTX_SEMAPHORE,$testnet);
@@ -641,7 +641,7 @@ function generate_blocks24h_json_files($mysqli, $testnet = 0) {
             'api' => array(
                 'version' => 4,
                 'compat' => 4,
-                'bev' => 'bk24h='.DASHNINJA_BEV.".".DASHNINJA_CRONVERSION
+                'bev' => 'bk24h='.PACNINJA_BEV.".".PACNINJA_CRONVERSION
             )
         ));
         save_json("blocks24h",$data,DMN_CRON_BK24_SEMAPHORE,$testnet);
@@ -684,7 +684,7 @@ function generate_nodesstatus_json_files($mysqli, $testnet = 0) {
                 'fromcache' => true),
             'api' => array('version' => 3,
                 'compat' => 3,
-                'bev' => 'mnst='.DASHNINJA_BEV.'.'.DASHNINJA_CRONVERSION)
+                'bev' => 'mnst='.PACNINJA_BEV.'.'.PACNINJA_CRONVERSION)
         ));
     save_json("nodesstatus",$data,DMN_CRON_MNST_SEMAPHORE,$testnet);
 
@@ -782,7 +782,7 @@ function generate_blocksconsensus_json_files($mysqli, $testnet = 0) {
                 'fromcache' => true),
             'api' => array('version' => 3,
                 'compat' => 3,
-                'bev' => 'bkcs='.DASHNINJA_BEV.'.'.DASHNINJA_CRONVERSION)
+                'bev' => 'bkcs='.PACNINJA_BEV.'.'.PACNINJA_CRONVERSION)
         ));
     save_json("blocksconsensus",$data,DMN_CRON_BKCS_SEMAPHORE,$testnet);
 
@@ -864,7 +864,7 @@ function generate_governancevotelimit_json_files($mysqli, $testnet = 0) {
         'api' => array(
             'version' => 1,
             'compat' => 1,
-            'bev' => 'gpvl=' . DASHNINJA_BEV . "." . DASHNINJA_CRONVERSION
+            'bev' => 'gpvl=' . PACNINJA_BEV . "." . PACNINJA_CRONVERSION
         )
     ));
 
@@ -1023,7 +1023,7 @@ function generate_governanceproposals_json_files($mysqli, $testnet = 0) {
         'api' => array(
             'version' => 2,
             'compat' => 1,
-            'bev' => 'gp='.DASHNINJA_BEV.".".DASHNINJA_CRONVERSION
+            'bev' => 'gp='.PACNINJA_BEV.".".PACNINJA_CRONVERSION
         )
         ));
 
@@ -1123,7 +1123,7 @@ function generate_governancetriggers_json_files($mysqli, $testnet = 0) {
         'api' => array(
             'version' => 1,
             'compat' => 1,
-            'bev' => 'gt='.DASHNINJA_BEV.".".DASHNINJA_CRONVERSION
+            'bev' => 'gt='.PACNINJA_BEV.".".PACNINJA_CRONVERSION
         )
         ));
 
@@ -1187,7 +1187,7 @@ function generate_blockssuperblocks_json_files($mysqli, $testnet = 0) {
             'api' => array(
                 'version' => 1,
                 'compat' => 1,
-                'bev' => 'sb='.DASHNINJA_BEV.".".DASHNINJA_CRONVERSION
+                'bev' => 'sb='.PACNINJA_BEV.".".PACNINJA_CRONVERSION
             )
         ));
 
@@ -1195,7 +1195,7 @@ function generate_blockssuperblocks_json_files($mysqli, $testnet = 0) {
 
 }
 
-xecho('DASH Ninja Front-End JSON Generator cron v'.DASHNINJA_BEV.'.'.DASHNINJA_CRONVERSION."\n");
+xecho('DASH Ninja Front-End JSON Generator cron v'.PACNINJA_BEV.'.'.PACNINJA_CRONVERSION."\n");
 
 if ($argc != 3) {
     xecho("Usage: ".$argv[0]." main|testnet <command>\n");
