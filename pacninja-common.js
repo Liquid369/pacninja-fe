@@ -19,102 +19,101 @@
 
 function diffHR(diff) {
 
-  var s = Math.floor( diff % 60 );
-  var m = Math.floor( diff / 60 % 60 );
-  var h = Math.floor( diff / 3600 % 24 );
-  var d = Math.floor( diff / 86400 % 7 );
-  var w = Math.floor( diff / 604800 );
-  var rtxt = '';
-  if (w > 0) {
-    rtxt += w+'w';
-  }
-  if (d > 0) {
-    rtxt += d+'d';
-  }
-  if (h > 0) {
-    rtxt += h+'h';
-  }
-  if (m > 0) {
-    rtxt += m+'m';
-  }
-  if (s > 0) {
-    rtxt += s+'s';
-  }
-  return rtxt.trim();
+    var s = Math.floor(diff % 60);
+    var m = Math.floor(diff / 60 % 60);
+    var h = Math.floor(diff / 3600 % 24);
+    var d = Math.floor(diff / 86400 % 7);
+    var w = Math.floor(diff / 604800);
+    var rtxt = '';
+    if (w > 0) {
+        rtxt += w + 'w';
+    }
+    if (d > 0) {
+        rtxt += d + 'd';
+    }
+    if (h > 0) {
+        rtxt += h + 'h';
+    }
+    if (m > 0) {
+        rtxt += m + 'm';
+    }
+    if (s > 0) {
+        rtxt += s + 's';
+    }
+    return rtxt.trim();
 }
 
 function diffHRlong(diff) {
 
-  var s = Math.floor( diff % 60 );
-  var m = Math.floor( diff / 60 % 60 );
-  var h = Math.floor( diff / 3600 % 24 );
-  var d = Math.floor( diff / 86400 % 7 );
-  var w = Math.floor( diff / 604800 );
-  var rtxt = '';
-  if (w > 0) {
-    rtxt += w+' week';
-    if (w > 1) {
-      rtxt += 's';
+    var s = Math.floor(diff % 60);
+    var m = Math.floor(diff / 60 % 60);
+    var h = Math.floor(diff / 3600 % 24);
+    var d = Math.floor(diff / 86400 % 7);
+    var w = Math.floor(diff / 604800);
+    var rtxt = '';
+    if (w > 0) {
+        rtxt += w + ' week';
+        if (w > 1) {
+            rtxt += 's';
+        }
+        rtxt += ' ';
     }
-    rtxt += ' ';
-  }
-  if (d > 0) {
-    rtxt += d+' day';
-    if (d > 1) {
-      rtxt += 's';
+    if (d > 0) {
+        rtxt += d + ' day';
+        if (d > 1) {
+            rtxt += 's';
+        }
+        rtxt += ' ';
     }
-    rtxt += ' ';
-  }
-  if (h > 0) {
-    rtxt += h+' hour';
-    if (h > 1) {
-      rtxt += 's';
+    if (h > 0) {
+        rtxt += h + ' hour';
+        if (h > 1) {
+            rtxt += 's';
+        }
+        rtxt += ' ';
     }
-    rtxt += ' ';
-  }
-  if (m > 0) {
-    rtxt += m+' minute';
-    if (m > 1) {
-      rtxt += 's';
+    if (m > 0) {
+        rtxt += m + ' minute';
+        if (m > 1) {
+            rtxt += 's';
+        }
+        rtxt += ' ';
     }
-    rtxt += ' ';
-  }
-  if (s > 0) {
-    rtxt += s+' second';
-    if (s > 1) {
-      rtxt += 's';
+    if (s > 0) {
+        rtxt += s + ' second';
+        if (s > 1) {
+            rtxt += 's';
+        }
+        rtxt += ' ';
     }
-    rtxt += ' ';
-  }
-  return rtxt.trim();
+    return rtxt.trim();
 }
 
-function deltaTimeStampHR(ts1,ts2) {
-  var diff = Math.abs( ts2 - ts1 );
-  return diffHR(diff);
+function deltaTimeStampHR(ts1, ts2) {
+    var diff = Math.abs(ts2 - ts1);
+    return diffHR(diff);
 }
 
 
-function deltaTimeStampHRlong(ts1,ts2) {
-  var diff = Math.abs( ts2 - ts1 );
-  return diffHRlong(diff);
+function deltaTimeStampHRlong(ts1, ts2) {
+    var diff = Math.abs(ts2 - ts1);
+    return diffHRlong(diff);
 }
 
 function currenttimestamp() {
-  return Math.round(new Date().getTime() / 1000);
+    return Math.round(new Date().getTime() / 1000);
 }
 
-function addCommas(nStr)
-{
-        nStr += '';
-        x = nStr.split('.');
-        x1 = x[0];
-        x2 = x.length > 1 ? '.' + x[1] : '';
-        var rgx = /(\d+)(\d{3})/;
-        while (rgx.test(x1)) {
-                x1 = x1.replace(rgx, '$1' + ',' + '$2');
-        }
-        return x1 + x2;
+function addCommas(nStr) {
+    nStr += '';
+    x = nStr.split('.');
+    x1 = x[0];
+    x2 = x.length > 1 ? '.' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(x1)) {
+        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+    }
+    return x1 + x2;
 }
 
 function timeSince(seconds) {
@@ -176,7 +175,7 @@ function pad(str, len, pad, dir) {
 
     if (len + 1 >= str.length) {
 
-        switch (dir){
+        switch (dir) {
 
             case STR_PAD_LEFT:
                 str = Array(len + 1 - str.length).join(pad) + str;
@@ -185,7 +184,7 @@ function pad(str, len, pad, dir) {
             case STR_PAD_BOTH:
                 var right = Math.ceil((padlen = len - str.length) / 2);
                 var left = padlen - right;
-                str = Array(left+1).join(pad) + str + Array(right+1).join(pad);
+                str = Array(left + 1).join(pad) + str + Array(right + 1).join(pad);
                 break;
 
             default:
