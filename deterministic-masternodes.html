@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <!--
-This file is part of Dash Ninja.
+This file is part of Pac Ninja.
 https://github.com/elbereth/pacninja-fe
 
-Dash Ninja is free software: you can redistribute it and/or modify
+Pac Ninja is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
-Dash Ninja is distributed in the hope that it will be useful,
+Pac Ninja is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with Dash Ninja.  If not, see <http://www.gnu.org/licenses/>.
+along with Pac Ninja.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <html>
 
@@ -22,7 +22,7 @@ along with Dash Ninja.  If not, see <http://www.gnu.org/licenses/>.
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>DASH Ninja - Deterministic Masternodes Monitoring</title>
+    <title>Pac Ninja - Deterministic Masternodes Monitoring</title>
 
     <link rel="icon" href="/static/pacninja-favicon.ico" />
     <link rel="icon" type="image/png" href="/static/pacninja-favicon.png" />
@@ -51,7 +51,7 @@ along with Dash Ninja.  If not, see <http://www.gnu.org/licenses/>.
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-                <a class="navbar-brand" href="/"><img style="margin-top: -13px; border-top: 0px; border-bottom: 0px; margin-right: 10px;" src="/static/pacninja-logo48x48.png" width="48" height="48" align="left"> DASH Ninja<span id="testnettitle" style="display: none"> (TESTNET)</span></a>
+                <a class="navbar-brand" href="/"><img style="margin-top: -13px; border-top: 0px; border-bottom: 0px; margin-right: 10px;" src="/static/pacninja-logo48x48.png" width="48" height="48" align="left"> Pac Ninja<span id="testnettitle" style="display: none"> (TESTNET)</span></a>
             </div>
             <div class="collapse navbar-collapse navbar-collapse" role="navigation">
                 <ul class="nav navbar-nav navbar-right">
@@ -63,14 +63,14 @@ along with Dash Ninja.  If not, see <http://www.gnu.org/licenses/>.
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-wrench fa-fw" aria-hidden="true"></i> Other Tools <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li class="dropdown-header">Official Pages</li>
-                            <li><a href="http://www.dash.org/">Dash Homepage</a></li>
-                            <li><a href="https://github.com/dashpay/dash">Dash Github Sources</a></li>
-                            <li><a href="https://www.dash.org/downloads/">Dash Binaries</a></li>
+                            <li><a href="http://www.dash.org/">Pac Homepage</a></li>
+                            <li><a href="https://github.com/dashpay/dash">Pac Github Sources</a></li>
+                            <li><a href="https://www.dash.org/downloads/">Pac Binaries</a></li>
                             <li class="divider"></li>
                             <li class="dropdown-header">Forums / Wiki</li>
-                            <li><a href="https://dashpay.atlassian.net/wiki/">Official Dash Wiki</a></li>
-                            <li><a href="https://dash.org/forum">Official Dash Forum</a></li>
-                            <li><a href="https://bitcointalk.org/index.php?topic=421615">BitcoinTalk (BTC) - Dash ANN</a></li>
+                            <li><a href="https://dashpay.atlassian.net/wiki/">Official Pac Wiki</a></li>
+                            <li><a href="https://dash.org/forum">Official Pac Forum</a></li>
+                            <li><a href="https://bitcointalk.org/index.php?topic=421615">BitcoinTalk (BTC) - Pac ANN</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -101,7 +101,7 @@ along with Dash Ninja.  If not, see <http://www.gnu.org/licenses/>.
                 <div class="col-lg-4 col-md-4">
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                            Dash Ninja info
+                            Pac Ninja info
                         </div>
                         <div class="panel-body">
                             By <a class="badge badge-primary" href="https://keybase.io/elbereth/">elberethzone</a> / Time <span class="label label-info">GMT/UTC</span> / HTML <span class="label label-info">0.2.1</span> / JavaScript <span class="label label-danger"
@@ -121,10 +121,10 @@ along with Dash Ninja.  If not, see <http://www.gnu.org/licenses/>.
                             Actual masternode version
                         </div>
                         <div class="panel-body">
-                            dashd v<span id="currentdashversion" style="font-weight: bold">?.?.?.?</span> / Sentinel v<span id="currentsentinelversion" style="font-weight: bold">?.?.?</span>
+                            pacd v<span id="currentdashversion" style="font-weight: bold">?.?.?.?</span> / Sentinel v<span id="currentsentinelversion" style="font-weight: bold">?.?.?</span>
                         </div>
                         <div class="panel-footer">
-                            <span class="pull-left"><u><b>IMPORTANT:</b></u> <i class="fas fa-shield-alt" style="color: red"></i> <a href="https://shop.trezor.io/product/trezor-model-t?offer_id=14&aff_id=2360&source=protx">Secure your DASH in hardware wallet</a></span>
+                            <span class="pull-left"><u><b>IMPORTANT:</b></u> <i class="fas fa-shield-alt" style="color: red"></i> <a href="https://shop.trezor.io/product/trezor-model-t?offer_id=14&aff_id=2360&source=protx">Secure your Pac in hardware wallet</a></span>
                             <div class="clearfix"></div>
                         </div>
                     </div>
@@ -297,8 +297,8 @@ along with Dash Ninja.  If not, see <http://www.gnu.org/licenses/>.
                                                 <td>Masternode is listed but has status "0" (masternode list)<br/>Possible reasons:<br/>
                                                     <ul>
                                                         <li>Masternode is not responding (port 9999 must be open on your firewall, if you see Closed below, there is your problem)
-                                                            <li>The 1000 DASH were removed from the masternode start wallet
-                                                                <li>The masternode is getting banned (active on some but inactive on others):<br/>Try masternode start with a fresh/new local wallet (don't forget to send your 1000 DASH to that new wallet!!)<br/>This
+                                                            <li>The 1000 Pac were removed from the masternode start wallet
+                                                                <li>The masternode is getting banned (active on some but inactive on others):<br/>Try masternode start with a fresh/new local wallet (don't forget to send your 1000 Pac to that new wallet!!)<br/>This
                                                                     will force a new masternode pubkey (I fixed my dmn01 with that trick)
                                                                     <li>Make sure you have the <a href="http://dashpay.io/downloads/">latest daemon version</a></ul>
                                                 </td>
@@ -313,11 +313,11 @@ along with Dash Ninja.  If not, see <http://www.gnu.org/licenses/>.
                                 </div>
                                 <div class="tab-pane fade" id="balance">
                                     <h4>Balance:</h4>
-                                    <p>This is the balance of the pubkey, if more than 1000 DASH then it has a green background (there can be up to 15min delay with true balance).</p>
+                                    <p>This is the balance of the pubkey, if more than 1000 Pac then it has a green background (there can be up to 15min delay with true balance).</p>
                                 </div>
                                 <div class="tab-pane fade" id="jsonapi">
                                     <h4>JSON API:</h4>
-                                    <p>An API is available (some documentation can be found <a href="https://www.dash.org/forum/threads/pacninja-pl-dash-masternode-ninja-free-masternode-monitoring.2722/">there</a>) to retrieve the information below.</p>
+                                    <p>An API is available (some documentation can be found <a href="https://www.dash.org/forum/threads/pacninja-pl-pac-masternode-ninja-free-masternode-monitoring.2722/">there</a>) to retrieve the information below.</p>
                                 </div>
                             </div>
                         </div>

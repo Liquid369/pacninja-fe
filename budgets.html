@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <!--
-This file is part of Dash Ninja.
+This file is part of Pac Ninja.
 https://github.com/elbereth/pacninja-fe
 
-Dash Ninja is free software: you can redistribute it and/or modify
+Pac Ninja is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
-Dash Ninja is distributed in the hope that it will be useful,
+Pac Ninja is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with Dash Ninja.  If not, see <http://www.gnu.org/licenses/>.
+along with Pac Ninja.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <html>
 
@@ -22,7 +22,7 @@ along with Dash Ninja.  If not, see <http://www.gnu.org/licenses/>.
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>DASH Ninja - Budget Monitoring</title>
+    <title>Pac Ninja - Budget Monitoring</title>
 
     <link rel="icon" href="/static/pacninja-favicon.ico" />
     <link rel="icon" type="image/png" href="/static/pacninja-favicon.png" />
@@ -61,14 +61,14 @@ along with Dash Ninja.  If not, see <http://www.gnu.org/licenses/>.
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-wrench fa-fw" aria-hidden="true"></i> Other Tools <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li class="dropdown-header">Official Pages</li>
-                            <li><a href="http://www.dash.org/">Dash Homepage</a></li>
-                            <li><a href="https://github.com/dashpay/dash">Dash Github Sources</a></li>
-                            <li><a href="https://www.dash.org/downloads/">Dash Binaries</a></li>
+                            <li><a href="http://www.dash.org/">Pac Homepage</a></li>
+                            <li><a href="https://github.com/dashpay/dash">Pac Github Sources</a></li>
+                            <li><a href="https://www.dash.org/downloads/">Pac Binaries</a></li>
                             <li class="divider"></li>
                             <li class="dropdown-header">Forums / Wiki</li>
-                            <li><a href="https://dashpay.atlassian.net/wiki/">Official Dash Wiki</a></li>
-                            <li><a href="https://dash.org/forum">Official Dash Forum</a></li>
-                            <li><a href="https://bitcointalk.org/index.php?topic=421615">BitcoinTalk (BTC) - Dash ANN</a></li>
+                            <li><a href="https://dashpay.atlassian.net/wiki/">Official Pac Wiki</a></li>
+                            <li><a href="https://dash.org/forum">Official Pac Forum</a></li>
+                            <li><a href="https://bitcointalk.org/index.php?topic=421615">BitcoinTalk (BTC) - Pac ANN</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -96,7 +96,7 @@ along with Dash Ninja.  If not, see <http://www.gnu.org/licenses/>.
             </div>
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                 <div class="page-header">
-                    <h1>DASH Ninja - Budget Monitoring</h1>
+                    <h1>Pac Ninja - Budget Monitoring</h1>
                     <p>Page is dynamically refreshed (JavaScript required). All dates/times are using your system locale.<br/> Versions: <i>HTML v1.5.6 / JS v<span id="pacninjajsversion">?.?.?</span></i> (hint: might need to Ctrl+F5 to update JS)</p>
                 </div>
                 <div id="testnetalert" class="alert alert-danger" style="display: none">
@@ -111,10 +111,10 @@ along with Dash Ninja.  If not, see <http://www.gnu.org/licenses/>.
                 </div>
                 <h2>Global Statistics</h2>
                 <p>There are <span id="globalvalidbudget" style="font-weight: bold;">???</span> valid budgets proposal of which <span id="globalestablishedbudget" style="font-weight: bold;">???</span> are established (total established payment: <span id="globalestablishedbudgetamount"
-                        style="font-weight: bold;">????.???????? DASH</span>) and <span id="globalallotedbudget" style="font-weight: bold;">???</span> are alloted (total alloted payment: <span id="globalallotedbudgetamount" style="font-weight: bold;">????.???????? DASH</span>).</p>
+                        style="font-weight: bold;">????.???????? Pac</span>) and <span id="globalallotedbudget" style="font-weight: bold;">???</span> are alloted (total alloted payment: <span id="globalallotedbudgetamount" style="font-weight: bold;">????.???????? Pac</span>).</p>
                 <p>Next super-block will be <span id="globalnextsuperblockid" style="font-weight: bold;">???</span> on <span id="globalnextsuperblockdate" style="font-weight: bold;">??/??/????</span> (<span id="globalnextsuperblockremaining" style="font-weight: bold;">???</span>)
-                    and will provide <span id="globalnextsuperblockamount" style="font-weight: bold;">????.???????? DASH</span> for budgets.</p>
-                <p><span id="globalnextsuperblockunallocated" style="font-weight: bold;">????.???????? DASH</span> unallocated in next super-block.</p>
+                    and will provide <span id="globalnextsuperblockamount" style="font-weight: bold;">????.???????? Pac</span> for budgets.</p>
+                <p><span id="globalnextsuperblockunallocated" style="font-weight: bold;">????.???????? Pac</span> unallocated in next super-block.</p>
 
                 <h2 id="budgetinfo">Budget Info</h2>
                 <p>A budget proposal is <strong>valid</strong> if the fee was payed and it was submitted to peers successfully.</p>

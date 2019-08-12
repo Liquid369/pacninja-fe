@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <!--
-This file is part of Dash Ninja.
+This file is part of Pac Ninja.
 https://github.com/elbereth/pacninja-fe
 
-Dash Ninja is free software: you can redistribute it and/or modify
+Pac Ninja is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
-Dash Ninja is distributed in the hope that it will be useful,
+Pac Ninja is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with Dash Ninja.  If not, see <http://www.gnu.org/licenses/>.
+along with Pac Ninja.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <html>
 
@@ -22,7 +22,7 @@ along with Dash Ninja.  If not, see <http://www.gnu.org/licenses/>.
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>DASH Ninja - Blocks Masternodes Payee</title>
+    <title>Pac Ninja - Blocks Masternodes Payee</title>
 
     <link rel="icon" href="/static/pacninja-favicon.ico" />
     <link rel="icon" type="image/png" href="/static/pacninja-favicon.png" />
@@ -52,7 +52,7 @@ along with Dash Ninja.  If not, see <http://www.gnu.org/licenses/>.
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-                <a class="navbar-brand" href="/"><img style="margin-top: -13px; border-top: 0px; border-bottom: 0px; margin-right: 10px;" src="/static/pacninja-logo48x48.png" width="48" height="48" align="left"> DASH Ninja</a>
+                <a class="navbar-brand" href="/"><img style="margin-top: -13px; border-top: 0px; border-bottom: 0px; margin-right: 10px;" src="/static/pacninja-logo48x48.png" width="48" height="48" align="left"> Pac Ninja</a>
             </div>
             <div class="collapse navbar-collapse navbar-collapse" role="navigation">
                 <ul class="nav navbar-nav navbar-right">
@@ -64,14 +64,14 @@ along with Dash Ninja.  If not, see <http://www.gnu.org/licenses/>.
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-wrench fa-fw" aria-hidden="true"></i> Other Tools <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li class="dropdown-header">Official Pages</li>
-                            <li><a href="http://www.dash.org/">Dash Homepage</a></li>
-                            <li><a href="https://github.com/dashpay/dash">Dash Github Sources</a></li>
-                            <li><a href="https://www.dash.org/downloads/">Dash Binaries</a></li>
+                            <li><a href="http://www.dash.org/">Pac Homepage</a></li>
+                            <li><a href="https://github.com/dashpay/dash">Pac Github Sources</a></li>
+                            <li><a href="https://www.dash.org/downloads/">Pac Binaries</a></li>
                             <li class="divider"></li>
                             <li class="dropdown-header">Forums / Wiki</li>
-                            <li><a href="https://dashpay.atlassian.net/wiki/">Official Dash Wiki</a></li>
-                            <li><a href="https://dash.org/forum">Official Dash Forum</a></li>
-                            <li><a href="https://bitcointalk.org/index.php?topic=421615">BitcoinTalk (BTC) - Dash ANN</a></li>
+                            <li><a href="https://dashpay.atlassian.net/wiki/">Official Pac Wiki</a></li>
+                            <li><a href="https://dash.org/forum">Official Pac Forum</a></li>
+                            <li><a href="https://bitcointalk.org/index.php?topic=421615">BitcoinTalk (BTC) - Pac ANN</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -102,7 +102,7 @@ along with Dash Ninja.  If not, see <http://www.gnu.org/licenses/>.
                 <div class="col-lg-4 col-md-8">
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                            Dash Ninja info
+                            Pac Ninja info
                         </div>
                         <div class="panel-body">
                             By <a class="badge badge-primary" href="https://keybase.io/elbereth/">elberethzone</a> / Time <span class="label label-info">GMT/UTC</span> / HTML <span class="label label-info">2.5.2</span> / JavaScript <span class="label label-danger"
@@ -123,7 +123,7 @@ along with Dash Ninja.  If not, see <http://www.gnu.org/licenses/>.
             </div>
             <div class="row">
                 <h2>Global Statistics</h2>
-                <p>Total supply for last 24h: <span id="globalsupplyamount" style="font-weight: bold;">????.?????? DASH</span> (<span id="globalmnamount" style="font-weight: bold;">????.?????? DASH</span> for masternodes, <span id="globalpayed" style="font-weight: bold;">???%</span>                    blocks payed, <span id="globalcorrectlypayed" style="font-weight: bold;">???%</span> of total blocks payed correctly [<span id="globalcurrentmnratio">??</span>% and latest protocol/block version]).</p>
+                <p>Total supply for last 24h: <span id="globalsupplyamount" style="font-weight: bold;">????.?????? Pac</span> (<span id="globalmnamount" style="font-weight: bold;">????.?????? Pac</span> for masternodes, <span id="globalpayed" style="font-weight: bold;">???%</span>                    blocks payed, <span id="globalcorrectlypayed" style="font-weight: bold;">???%</span> of total blocks payed correctly [<span id="globalcurrentmnratio">??</span>% and latest protocol/block version]).</p>
             </div>
             <div class="row">
                 <h2 id="perversion">Per Version Statistics (last 24h)</h2>
@@ -165,12 +165,12 @@ along with Dash Ninja.  If not, see <http://www.gnu.org/licenses/>.
                                 <td>You need to update <u>BOTH</u>:<br/>
                                     <ul>
                                         <li>Your mining software to include masternode payment (it is not complex): <a href="https://dashpay.atlassian.net/wiki/display/DOC/Mining+pools">https://dashpay.atlassian.net/wiki/display/DOC/Mining+pools</a></li>
-                                        <li>Your dashd wallet software to latest version</li>
+                                        <li>Your pacd wallet software to latest version</li>
                                     </ul>Remark: Failing to update BOTH will result in your blocks not been accepted as of next enforcement).</td>
                             </tr>
                             <tr>
                                 <td style="background-color:#FF8f8F">Red background (<b>Payed to current protocol</b> field)</td>
-                                <td>You need to update your dashd wallet software to latest version (check <a href="https://dashpay.atlassian.net/wiki/display/DOC/Mining+pools">this page</a>)</td>
+                                <td>You need to update your pacd wallet software to latest version (check <a href="https://dashpay.atlassian.net/wiki/display/DOC/Mining+pools">this page</a>)</td>
                             </tr>
                             <tr>
                                 <td style="background-color:#FFcb8f">Orange background (<b>MN Payment ratio</b> field)</td>

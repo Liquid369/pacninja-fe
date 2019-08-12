@@ -1,23 +1,23 @@
 /*
- This file is part of Dash Ninja.
+ This file is part of Pac Ninja.
  https://github.com/akshaynexus/pacninja-fe
 
- Dash Ninja is free software: you can redistribute it and/or modify
+ Pac Ninja is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
  the Free Software Foundation, either version 3 of the License, or
  (at your option) any later version.
 
- Dash Ninja is distributed in the hope that it will be useful,
+ Pac Ninja is distributed in the hope that it will be useful,
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  GNU General Public License for more details.
 
  You should have received a copy of the GNU General Public License
- along with Dash Ninja.  If not, see <http://www.gnu.org/licenses/>.
+ along with Pac Ninja.  If not, see <http://www.gnu.org/licenses/>.
 
  */
 
-// Dash Ninja Front-End (pacninja-fe) - Proposal Details
+// Pac Ninja Front-End (pacninja-fe) - Proposal Details
 // By elberethzone / https://www.dash.org/forum/members/elbereth.175/
 
 var pacninjaversion = '1.5.2';
@@ -183,7 +183,7 @@ function budgetdetailsRefresh(useHash) {
             if (url.indexOf("://") == -1) {
                 url = "http://" + url;
             }
-            $('#budgeturl').html('<a href="' + url + '">' + data.data.governanceproposals[0].URL + '</a> - <a href="https://www.dashcentral.org/p/' + encodeURI(data.data.governanceproposals[0].Name) + '"><img src="/static/dash-central-64x64.png" height=16" width="16"></a>');
+            $('#budgeturl').html('<a href="' + url + '">' + data.data.governanceproposals[0].URL + '</a> - <a href="https://www.dashcentral.org/p/' + encodeURI(data.data.governanceproposals[0].Name) + '"><img src="/static/pac-central-64x64.png" height=16" width="16"></a>');
             var dateConv = new Date(data.data.governanceproposals[0].EpochStart * 1000);
             $('#budgetblockstart').text(dateConv.toLocaleDateString() + ' ' + dateConv.toLocaleTimeString());
             var dateConv = new Date(data.data.governanceproposals[0].EpochEnd * 1000);
@@ -457,9 +457,9 @@ function refreshBudgetProjection(useHash) {
 function refreshFiatValues() {
 
     if (currentbudget !== null) {
-        $('#fiatDASHBTCval').html('<i class="fa fa-spinner fa-pulse"></i>');
-        $('#fiatDASHBTCwho').html('<i class="fa fa-spinner fa-pulse"></i>');
-        $('#fiatDASHBTCwhen').html('<i class="fa fa-spinner fa-pulse"></i>');
+        $('#fiatPacBTCval').html('<i class="fa fa-spinner fa-pulse"></i>');
+        $('#fiatPacBTCwho').html('<i class="fa fa-spinner fa-pulse"></i>');
+        $('#fiatPacBTCwhen').html('<i class="fa fa-spinner fa-pulse"></i>');
         $('#fiatUSDBTCval').html('<i class="fa fa-spinner fa-pulse"></i>');
         $('#fiatUSDBTCwho').html('<i class="fa fa-spinner fa-pulse"></i>');
         $('#fiatUSDBTCwhen').html('<i class="fa fa-spinner fa-pulse"></i>');
@@ -476,9 +476,9 @@ function refreshFiatValues() {
             if ((!data.hasOwnProperty("data")) || (!data.data.hasOwnProperty("tablevars")) || (data.data.tablevars === null) ||
                 (!data.data.tablevars.hasOwnProperty("btcdrk")) || (!data.data.tablevars.hasOwnProperty("eurobtc")) ||
                 (!data.data.tablevars.hasOwnProperty("usdbtc"))) {
-                $('#fiatDASHBTCval').text('???');
-                $('#fiatDASHBTCwho').text('???');
-                $('#fiatDASHBTCwhen').text('???');
+                $('#fiatPacBTCval').text('???');
+                $('#fiatPacBTCwho').text('???');
+                $('#fiatPacBTCwhen').text('???');
                 $('#fiatUSDBTCval').text('???');
                 $('#fiatUSDBTCwho').text('???');
                 $('#fiatUSDBTCwhen').text('???');
@@ -490,10 +490,10 @@ function refreshFiatValues() {
                 $('#budgettotalamountusd').text('???');
                 $('#budgettotalamounteur').text('???');
             } else {
-                $('#fiatDASHBTCval').text(data.data.tablevars.btcdrk.StatValue);
-                $('#fiatDASHBTCwho').text(data.data.tablevars.btcdrk.Source);
+                $('#fiatPacBTCval').text(data.data.tablevars.btcdrk.StatValue);
+                $('#fiatPacBTCwho').text(data.data.tablevars.btcdrk.Source);
                 var tmpDate = new Date(parseInt(data.data.tablevars.btcdrk.LastUpdate) * 1000);
-                $('#fiatDASHBTCwhen').text(tmpDate.toLocaleString());
+                $('#fiatPacBTCwhen').text(tmpDate.toLocaleString());
                 $('#fiatUSDBTCval').text(data.data.tablevars.usdbtc.StatValue);
                 $('#fiatUSDBTCwho').text(data.data.tablevars.usdbtc.Source);
                 tmpDate = new Date(parseInt(data.data.tablevars.usdbtc.LastUpdate) * 1000);

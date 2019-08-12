@@ -1,21 +1,21 @@
 <?php
 
 /*
-    This file is part of Dash Ninja.
+    This file is part of Pac Ninja.
     https://github.com/akshaynexus/pacninja-fe
 
-    Dash Ninja is free software: you can redistribute it and/or modify
+    Pac Ninja is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    Dash Ninja is distributed in the hope that it will be useful,
+    Pac Ninja is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with Dash Ninja.  If not, see <http://www.gnu.org/licenses/>.
+    along with Pac Ninja.  If not, see <http://www.gnu.org/licenses/>.
 
  */
 
@@ -918,7 +918,7 @@ function generate_governanceproposals_json_files($mysqli, $testnet = 0) {
 
     // Calculate next superblock timestamp
     $nextsuperblocktimestamp = round($currentblock['BlockTime']+(($nextsuperblock-$currentblock['BlockId'])/553.85)*86400);
-    echo "OK (".$currentblock["BlockId"]." / Estimated budget amount: ".$estimatedbudgetamount." DASH)\n";
+    echo "OK (".$currentblock["BlockId"]." / Estimated budget amount: ".$estimatedbudgetamount." Pac)\n";
 
     // Get governance proposals
     $sql = sprintf("SELECT * FROM cmd_gobject_proposals WHERE GovernanceObjectTestnet = %d",$testnet);
@@ -1195,7 +1195,7 @@ function generate_blockssuperblocks_json_files($mysqli, $testnet = 0) {
 
 }
 
-xecho('DASH Ninja Front-End JSON Generator cron v'.PACNINJA_BEV.'.'.PACNINJA_CRONVERSION."\n");
+xecho('Pac Ninja Front-End JSON Generator cron v'.PACNINJA_BEV.'.'.PACNINJA_CRONVERSION."\n");
 
 if ($argc != 3) {
     xecho("Usage: ".$argv[0]." main|testnet <command>\n");

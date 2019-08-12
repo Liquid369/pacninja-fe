@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <!--
-This file is part of Dash Ninja.
+This file is part of Pac Ninja.
 https://github.com/elbereth/pacninja-fe
 
-Dash Ninja is free software: you can redistribute it and/or modify
+Pac Ninja is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
-Dash Ninja is distributed in the hope that it will be useful,
+Pac Ninja is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with Dash Ninja.  If not, see <http://www.gnu.org/licenses/>.
+along with Pac Ninja.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <html>
 
@@ -22,7 +22,7 @@ along with Dash Ninja.  If not, see <http://www.gnu.org/licenses/>.
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>DASH Ninja - Governance Proposal Details</title>
+    <title>Pac Ninja - Governance Proposal Details</title>
 
     <link rel="icon" href="/static/pacninja-favicon.ico" />
     <link rel="icon" type="image/png" href="/static/pacninja-favicon.png" />
@@ -51,7 +51,7 @@ along with Dash Ninja.  If not, see <http://www.gnu.org/licenses/>.
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-                <a class="navbar-brand" href="/"><img style="margin-top: -13px; border-top: 0px; border-bottom: 0px; margin-right: 10px;" src="/static/pacninja-logo48x48.png" width="48" height="48" align="left"> DASH Ninja</a>
+                <a class="navbar-brand" href="/"><img style="margin-top: -13px; border-top: 0px; border-bottom: 0px; margin-right: 10px;" src="/static/pacninja-logo48x48.png" width="48" height="48" align="left"> Pac Ninja</a>
             </div>
             <div class="collapse navbar-collapse navbar-collapse" role="navigation">
                 <ul class="nav navbar-nav navbar-right">
@@ -63,14 +63,14 @@ along with Dash Ninja.  If not, see <http://www.gnu.org/licenses/>.
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-wrench fa-fw" aria-hidden="true"></i> Other Tools <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li class="dropdown-header">Official Pages</li>
-                            <li><a href="http://www.dash.org/">Dash Homepage</a></li>
-                            <li><a href="https://github.com/dashpay/dash">Dash Github Sources</a></li>
-                            <li><a href="https://www.dash.org/downloads/">Dash Binaries</a></li>
+                            <li><a href="http://www.dash.org/">Pac Homepage</a></li>
+                            <li><a href="https://github.com/dashpay/dash">Pac Github Sources</a></li>
+                            <li><a href="https://www.dash.org/downloads/">Pac Binaries</a></li>
                             <li class="divider"></li>
                             <li class="dropdown-header">Forums / Wiki</li>
-                            <li><a href="https://dashpay.atlassian.net/wiki/">Official Dash Wiki</a></li>
-                            <li><a href="https://dash.org/forum">Official Dash Forum</a></li>
-                            <li><a href="https://bitcointalk.org/index.php?topic=421615">BitcoinTalk (BTC) - Dash ANN</a></li>
+                            <li><a href="https://dashpay.atlassian.net/wiki/">Official Pac Wiki</a></li>
+                            <li><a href="https://dash.org/forum">Official Pac Forum</a></li>
+                            <li><a href="https://bitcointalk.org/index.php?topic=421615">BitcoinTalk (BTC) - Pac ANN</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -141,14 +141,14 @@ along with Dash Ninja.  If not, see <http://www.gnu.org/licenses/>.
                 <div class="col-lg-4 col-md-4">
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                            Dash Ninja info
+                            Pac Ninja info
                         </div>
                         <div class="panel-body">
                             By <a class="badge badge-primary" href="https://keybase.io/elbereth/">elberethzone</a> / Time <span class="label label-info">GMT/UTC</span> / HTML <span class="label label-info">1.5.1</span> / JavaScript <span class="label label-danger"
                                 id="pacninjajsversion">required</span><br>
                             <hr>
-                            <span class="pull-left">Using BTC/DASH</span>
-                            <span class="pull-right"><span id="fiatDASHBTCval" class="label label-primary">???</span> <span id="fiatDASHBTCwhen" class="label label-info">???</span> <span id="fiatDASHBTCwho" class="label label-default">???</span></span><br>
+                            <span class="pull-left">Using BTC/Pac</span>
+                            <span class="pull-right"><span id="fiatPacBTCval" class="label label-primary">???</span> <span id="fiatPacBTCwhen" class="label label-info">???</span> <span id="fiatPacBTCwho" class="label label-default">???</span></span><br>
                             <span class="pull-left">Using USD/BTC</span>
                             <span class="pull-right"><span id="fiatUSDBTCval" class="label label-primary">???</span> <span id="fiatUSDBTCwhen" class="label label-info">???</span> <span id="fiatUSDBTCwho" class="label label-default">???</span></span><br>
                             <span class="pull-left">Using EUR/BTC</span>
@@ -292,27 +292,27 @@ along with Dash Ninja.  If not, see <http://www.gnu.org/licenses/>.
                             <div class="tab-content">
                                 <div class="tab-pane fade in active" id="voteyes">
                                     <h4 class="text-success">Vote YES</h4>
-                                    <p>From your masternode cold wallet (the one having your 1000 DASH vins and where the revenue arrives).</p>
-                                    <p>To vote from dash-qt (graphical wallet), go to Tools > Debug console and type:</p>
+                                    <p>From your masternode cold wallet (the one having your 1000 Pac vins and where the revenue arrives).</p>
+                                    <p>To vote from pac-qt (graphical wallet), go to Tools > Debug console and type:</p>
                                     <pre>gobject vote-many <span id="budgethash1">???</span> funding yes</pre>
-                                    <p>To vote from dash-cli (command line, dashd must be running), type:</p>
-                                    <pre>dash-cli gobject vote-many <span id="budgethash2">???</span> funding yes</pre>
+                                    <p>To vote from pac-cli (command line, pacd must be running), type:</p>
+                                    <pre>pac-cli gobject vote-many <span id="budgethash2">???</span> funding yes</pre>
                                 </div>
                                 <div class="tab-pane fade" id="voteno">
                                     <h4 class="text-danger">Vote NO</h4>
-                                    <p>From your masternode cold wallet (the one having your 1000 DASH vins and where the revenue arrives).</p>
-                                    <p>To vote from dash-qt (graphical wallet), go to Tools > Debug console and type:</p>
+                                    <p>From your masternode cold wallet (the one having your 1000 Pac vins and where the revenue arrives).</p>
+                                    <p>To vote from pac-qt (graphical wallet), go to Tools > Debug console and type:</p>
                                     <pre>gobject vote-many <span id="budgethash3">???</span> funding no</pre>
-                                    <p>To vote from dash-cli (command line, dashd must be running), type:</p>
-                                    <pre>dash-cli gobject vote-many <span id="budgethash4">???</span> funding no</pre>
+                                    <p>To vote from pac-cli (command line, pacd must be running), type:</p>
+                                    <pre>pac-cli gobject vote-many <span id="budgethash4">???</span> funding no</pre>
                                 </div>
                                 <div class="tab-pane fade" id="voteabstain">
                                     <h4>Vote ABSTAIN (when you want to cancel a YES or NO vote)</h4>
-                                    <p>From your masternode cold wallet (the one having your 1000 DASH vins and where the revenue arrives).</p>
-                                    <p>To vote from dash-qt (graphical wallet), go to Tools > Debug console and type:</p>
+                                    <p>From your masternode cold wallet (the one having your 1000 Pac vins and where the revenue arrives).</p>
+                                    <p>To vote from pac-qt (graphical wallet), go to Tools > Debug console and type:</p>
                                     <pre>gobject vote-many <span id="budgethash5">???</span> funding abstain</pre>
-                                    <p>To vote from dash-cli (command line, dashd must be running), type:</p>
-                                    <pre>dash-cli gobject vote-many <span id="budgethash6">???</span> funding abstain</pre>
+                                    <p>To vote from pac-cli (command line, pacd must be running), type:</p>
+                                    <pre>pac-cli gobject vote-many <span id="budgethash6">???</span> funding abstain</pre>
                                 </div>
                             </div>
                         </div>

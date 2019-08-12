@@ -1,23 +1,23 @@
 /*
- This file is part of Dash Ninja.
+ This file is part of Pac Ninja.
  https://github.com/akshaynexus/pacninja-fe
 
- Dash Ninja is free software: you can redistribute it and/or modify
+ Pac Ninja is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
  the Free Software Foundation, either version 3 of the License, or
  (at your option) any later version.
 
- Dash Ninja is distributed in the hope that it will be useful,
+ Pac Ninja is distributed in the hope that it will be useful,
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  GNU General Public License for more details.
 
  You should have received a copy of the GNU General Public License
- along with Dash Ninja.  If not, see <http://www.gnu.org/licenses/>.
+ along with Pac Ninja.  If not, see <http://www.gnu.org/licenses/>.
 
  */
 
-// Dash Ninja Front-End (pacninja-fe) - Budgets
+// Pac Ninja Front-End (pacninja-fe) - Budgets
 // By elberethzone / https://dashtalk.org/members/elbereth.175/
 
 var pacninjaversion = '1.5.2';
@@ -754,7 +754,7 @@ $(document).ready(function() {
             },
             yAxis: {
                 title: {
-                    text: 'Amount (DASH)'
+                    text: 'Amount (Pac)'
                 },
                 plotLines: [{
                     value: 0,
@@ -763,7 +763,7 @@ $(document).ready(function() {
                 }]
             },
             tooltip: {
-                valueSuffix: 'DASH'
+                valueSuffix: 'Pac'
             },
             legend: {
                 layout: 'vertical',

@@ -4299,7 +4299,7 @@ dashcube:
     - '4.3'
     - 5.0.0
     - 5.0.3
-  label: DashCube
+  label: PacCube
   search:
     terms: []
   styles:

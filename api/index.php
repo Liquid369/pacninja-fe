@@ -1,21 +1,21 @@
 <?php
 
 /*
-    This file is part of Dash Ninja.
+    This file is part of Pac Ninja.
     https://github.com/akshaynexus/pacninja-fe
 
-    Dash Ninja is free software: you can redistribute it and/or modify
+    Pac Ninja is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    Dash Ninja is distributed in the hope that it will be useful,
+    Pac Ninja is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with Dash Ninja.  If not, see <http://www.gnu.org/licenses/>.
+    along with Pac Ninja.  If not, see <http://www.gnu.org/licenses/>.
 
  */
 
@@ -2294,7 +2294,7 @@ $app->get('/api/nodes', function() use ($app,&$mysqli) {
 //   ips=JSON encoded list of ip:port
 //   vins=JSON encoded list of output-index
 //   protocol=latest|integer (optional, then value=latest)
-//   prev12=0|1 (optional, respond as pre v0.12 Dash Ninja API, obsolete)
+//   prev12=0|1 (optional, respond as pre v0.12 Pac Ninja API, obsolete)
 // Each following enabled parameter will slow down the query, only activate if you really need the data :
 //   balance=0|1 (optional, add balance info)
 //   donation=0|1 (optional, add donation info, obsolete)

@@ -1,9 +1,9 @@
-# Dash Ninja Front-End (pacninja-fe)
+# Pac Ninja Front-End (pacninja-fe)
 By Alexandre (aka elbereth) Devilliers
 
 Check the running live website at [https://www.pacninja.pl]
 
-This is part of what makes the Dash Ninja monitoring application.
+This is part of what makes the Pac Ninja monitoring application.
 It contains:
 - Public REST API (using PHP and Phalcon framework)
 - Public web pages (using static HTML5/CSS/Javascript)
@@ -18,13 +18,13 @@ Special thanks to : [Jetbrains](https://www.jetbrains.com)
 For the REST API:
 * PHP v5.6 with mysqli (works/tested with PHP 7.1)
 * Phalcon v2.0.x (should work with any version) up to v3.2.x
-* MySQL database with Dash Ninja Database (check pacninja-db repository)
+* MySQL database with Pac Ninja Database (check pacninja-db repository)
 
 ## Optional:
-* Dash Ninja Control script installed and running (to have a populated database)
+* Pac Ninja Control script installed and running (to have a populated database)
 
 ## Install:
-* Go to the root of your website for Dash monitoring (ex: cd /home/pacninja2/www/)
+* Go to the root of your website for Pac monitoring (ex: cd /home/pacninja2/www/)
 * Get latest code from github:
 ```shell
 git clone https://github.com/akshaynexus/pacninja-fe.git
